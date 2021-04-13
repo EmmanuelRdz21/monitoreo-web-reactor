@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Monitoreo Web</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body id="bodyg">
+    <div id="slash-menu">
+        <header id="barra-azul">
+            <input type="checkbox" id="btn-menu" checked>
+        </header>
+
+        <div class="hider" id="menu-btn" for="btn-menu">
+             <label id="bot-menu" for ="btn-menu">
+                <div class="btn-hamburguer"></div>
+                <div class="btn-hamburguer"></div>
+                <div class="btn-hamburguer"></div>
+            </label>
+        </div>
+    </div>
+
+    <div class="screen">
+        <div id="menu-lateral" class="menu">
+            <ul>
+                <li><a id="showDiv1" href="#">Mediciones de Sensores</a></li>
+                <li><a id="showDiv2" href="#">Historico de Mediciones</a></li>
+                <li><a id="showDiv3" href="#">Control de válvulas</a></li>
+                <li><a id="showDiv4" href="#">Estados del Hw</a></li>
+                <li><a id="showDiv5" href="#">Reportes</a></li>
+                <li><a id="showDiv6" href="#">Acerca de</a></li>
+            </ul>
+        </div>
+        <div id="cont" class="contenedor">
+            <div id="div1" style="display: none">
+                <table>
+                    <tr>
+                        <td><li><label>T1</label></li></td>
+                        <td><li><label>26.7°</label></li>
+                        </td><td><li><label>ON</label></li></td>
+                    </tr>
+                    <tr>
+                        <td><li><label>T2</label></li></td>
+                        <td><li><label>26.7°</label></li></td>
+                        <td><label>OFF</label></li></td>
+                    </tr>
+                    <tr>
+                        <td><li><label>T3</label></li>
+                        <td><li><label>26.7°</label></li></td>
+                        </td><td><li><label>ON</label></li></td></br></br></br></br>
+                    </tr>
+                   
+                    <tr>
+                        <td><li><label>CO2</label></li></td>
+                        <td><li><label>26.7°</label></li></td>
+                        <td><label>OFF</label></li></td>
+                    </tr>
+                    <tr>
+                        <td><li><label>H2S</label></li></td>
+                        <td><li><label>26.7°</label></li></td>
+                        <td><li><label>ON</label></li></td>
+                    </tr>
+                    <tr>
+                        <td><li><label>CO</label></li></td>
+                        <td><li><label>26.7°</label></li></td>
+                        <td><li><label>OFF</label></li></td>
+                    </tr>       
+                </table>
+            </div>
+
+            <div id="div2" style="display: none">
+                Historico
+            </div>
+
+            <div id="div3" style="display: none">
+                <table class="tab-cdv">
+                    <tr>
+                        <td><label>Valvúla 1</label></td>
+                        <td><label id="out1">"NA"</label></td>
+                        <td><label>ON</label></td>
+                        <td><input type="text"id="in_box1"></td>
+                        <td><button type="button" id="btnA1" class="btnA">Aceptar</button></td>
+                    </tr>
+                    <tr>
+                        <td><label>Valvúla 2</label></td>
+                        <td><label id="out2">"NA"</label></td>
+                        <td><label>OFF</label></td>
+                        <td><input type="text"id="in_box2"></td>
+                        <td><button type="button" id="btnA2" class="btnA">Aceptar</button></td>
+                    </tr>
+                    <tr>
+                        <td><label>Valvúla 3</label></td>
+                        <td><label id="out3">"NA"</label></td>
+                        <td><label>ON</label></td>
+                        <td><input type="text"id="in_box3"></td>
+                        <td><button type="button" id="btnA3" class="btnA">Aceptar</button></td>
+                    </tr>
+                    <tr>
+                        <td><label>Valvúla 4</label></td>
+                        <td><label id="out4">"NA"</label></td>
+                        <td><label>OFF</label></td>
+                        <td><input type="text"id="in_box4"></td>
+                        <td><button type="button" id="btnA4" class="btnA">Aceptar</button></td>
+                    </tr>
+                    <tr>
+                        <td><label>Valvúla 5</label></td>
+                        <td><label id="out5">"NA"</label></td>
+                        <td><label>ON</label></td>
+                        <td><input type="text"id="in_box5"></td>
+                        <td><button type="button" id="btnA5" class="btnA">Aceptar</button></td>
+                    </tr>
+                    <tr>
+                        <td><label>Valvúla 6</label></td>
+                        <td><label id="out6">"NA"</label></td>
+                        <td><label>OFF</label></td><td><label>Inicio</label></td>
+                        <td><select>
+                            <option value="1">00:00</option>
+                            <option value="1">00:30</option>
+                            <option value="1">01:00</option>
+                        </select></td>
+                        <td>
+                        <td><label>Final</label></td>
+                        <td><select>
+                            <option value="1">00:00</option>
+                            <option value="1">00:30</option>
+                            <option value="1">01:00</option>
+                        </select></td>
+                        <td><button type="button" id="btnA6" class="btnA">Aceptar</button></td>
+                    </tr>
+                </table>
+
+            </div>
+
+            <div id="div4" style="display: none">
+                Estados
+                <button ; type="button" id="btn1" class="btn">Prueba 4</button>
+            </div>
+
+            <div id="div5" style="display: none">
+                REPORTES
+                <button ; type="button" id="btn1" class="btn">PRUEBA 5</button>
+            </div>
+
+            <div id="div6" style="display: none">
+                ACERCA DE
+                <button ; type="button" id="btn1" class="btn">PRUEBA 6</button>
+            </div>
+
+            <div id="out"> 
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </br></br>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+        </div>
+                
+    </div>
+
+    <!************************* HOJA DE ESTILO CSS **************************>
+       <!POPUP de info>
+       <div class="overlay" id="overlay-info1">
+           <div class="pop1" id="pop_info1">
+                <h3 class="titulo-pop">¿Seguro que deseas cambiar el valor?</h3>
+                <h4 class="msg" id="msg-pop">
+                    </h4>
+                <button type="button" id="btn11" class="btnA">Aceptar</button>
+                <button type="button" id="btn12" class="btnA">Cancelar</button>
+
+           </div>
+       </div>
+
+       <div class="overlay" id="overlay-info2">
+           <div class="pop1" id="pop_info2">
+                <h3 class="titulo-pop">¿Seguro que deseas cambiar el valor?</h3>
+                <h4 class="msg" id="msg-pop">
+                    </h4>
+                <button type="button" id="btn21" class="btnA">Aceptar</button>
+                <button type="button" id="btn22" class="btnA">Cancelar</button>
+
+           </div>
+       </div>
+
+       <div class="overlay" id="overlay-info3">
+           <div class="pop1" id="pop_info3">
+                <h3 class="titulo-pop">¿Seguro que deseas cambiar el valor?</h3>
+                <h4 class="msg" id="msg-pop">
+                    </h4>
+                <button type="button" id="btn31" class="btnA">Aceptar</button>
+                <button type="button" id="btn32" class="btnA">Cancelar</button>
+
+           </div>
+       </div>
+
+       <div class="overlay" id="overlay-info4">
+           <div class="pop1" id="pop_info4">
+                <h3 class="titulo-pop">¿Seguro que deseas cambiar el valor?</h3>
+                <h4 class="msg" id="msg-pop">
+                    </h4>
+                <button type="button" id="btn41" class="btnA">Aceptar</button>
+                <button type="button" id="btn42" class="btnA">Cancelar</button>
+
+           </div>
+       </div>
+    <script type="text/javascript" src="codigo.js"></script>
+</body>
+</html>
