@@ -12,14 +12,18 @@
 	width: 50px;
 	box-sizing: border-box;
 }
-
-
+/******************************************************/
+/*Seccion de botones ON-OFF de mediciones de sensores*/
+/****************************************************/
 #bot-menu{
 	display: block;
 	width: 30px;
 	height: 30px;
 	padding: 10px;
 	border-right: 1px solid #fff;
+}
+#btn-menu{
+	display: none;
 }
 #bot-menu:hover{
 	cursor: pointer;
@@ -31,19 +35,26 @@
 	height: 2px;
 	margin: 5px 0;
 }
+/******************************************************/
+/*				Seccion de barra azul				 */
+/****************************************************/
 #slash-menu{
 	width: 100%;
 	height:70px;
 	background-color: #4E94AB;
 }
+/*********************************************************/
+/*Recuadro verde: contiene contenedor y menu de opciones*/
+/*******************************************************/
 .screen{
 	width: 100%;
 	border: 1px solid #0f0; 
 	margin: 1px auto;
 	background-color: #fff;
 }
-
-
+/******************************************************/
+/*		Menú de opciones color negro				 */
+/****************************************************/
 .menu{
 	height:370px; 
 	width: 140px; 
@@ -52,25 +63,6 @@
 	background: #27272A;
 	transition: 0.5s;
 }
-.hide{
-	margin-left: -19%;
-}
-
-.contenedor{
-	height:500px;
-	padding: 10px;
-	margin: 10px 10px 10px 160px;
-	background-color: #D4D4D4;
-	border-style: solid;
-	border-width: 2px;
-	border-radius: 10px;
-	transition: 0.5s;
-
-}
-.complete{
-	margin: 10px 10px 10px 10px;
-}
-
 .menu ul{
 	margin: 0;
 	flex-direction: column;
@@ -90,14 +82,41 @@
 	color: #fff;
 	text-decoration: none;
 }
-#btn-menu{
-	display: none;
+.hide{
+	margin-left: -19%;
 }
+/******************************************************/
+/*			Contenedor de color gris claro			 */
+/****************************************************/
+.contenedor{
+	height:500px;
+	padding: 10px;
+	margin: 10px 10px 10px 160px;
+	background-color: #D4D4D4;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 10px;
+	transition: 0.5s;
+
+}
+.complete{
+	margin: 10px 10px 10px 10px;
+}
+/******************************************************/
+/*			Seccion de texto de bienvenida			 */
+/****************************************************/
 #out{
 	text-align: justify;
 }
+/********************************************************/
+/*Seccion de div: cada div es una opcion del menu negro*/
+/******************************************************/
+
+/******************************************************/
+/*----------Div1: Mediciones de Sensores-------------*/
+/****************************************************/
 #div1 table{
-	font-size: x-large;
+	display: center;
 	border-collapse: 5px separate;
 	width: 100%;
 	height: 100%;
@@ -105,11 +124,52 @@
 	text-align: center;
 }
 #div1 table td{
-   width: 25%;
-   text-align: left;
+	text-align: center;
    vertical-align: top;
    border: 1px solid #000;
 }
+.col{
+	background: #5C5250;
+}
+/******************************************************/
+/*Seccion de botones ON-OFF de mediciones de sensores*/
+/****************************************************/
+.ON-OFF1{
+	background: green;
+}
+.ON-OFF2{
+	background: red;
+}
+.ON-OFF3{
+	background: green;
+}
+.ON-OFF4{
+	background: red;
+}
+.ON-OFF5{
+	background: yellow;
+}
+.ON-OFF6{
+	background: grey;
+}
+.ON-OFF7{
+	background: red;
+}
+.ON-OFF8{
+	background: yellow;
+}
+.ON-OFF9{
+	background: grey;
+}
+.ON-OFF10{
+	background: green;
+}
+.ON-OFF11{
+	background: yellow;
+}
+/******************************************************/
+/*----------Div3: Control de valvulas-------------*/
+/****************************************************/
 .tab-cdv{
 	font-size: x-large;
 	text-align: center;
@@ -128,24 +188,9 @@
 	background: rgb(52, 52, 52);
 }
 
-/*POUP*/
-.overlay{
-	background: rgb(0,0,0,0.3);/* El 4to parametro es trasparencia*/
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	align-items: center;
-	justify-content: center;
-	display: flex;
-	visibility: hidden;
-}
-
-.overlay.active {
-	visibility: visible;
-}
-
+/******************************************************/
+/* 					Seccion de POPUP 				 */
+/****************************************************/
 .pop1{
 	background: #F8F8F8;
 	box-shadow: 0px 0px  5px 0px rgba(0,0,0,0.3);
@@ -161,4 +206,20 @@
 .pop1.active{
 	transform: scale(1);
 	opacity: 1;
+}
+.overlay{
+	background: rgb(0,0,0,0.3);/* El 4to parametro es trasparencia*/
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	visibility: hidden;
+}
+
+.overlay.active {
+	visibility: visible;
 }
