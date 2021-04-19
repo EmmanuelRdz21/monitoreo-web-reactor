@@ -136,10 +136,10 @@
 	color: white;
 }
 .tabla{
-	display: center;
+	display: relative;
 	border-collapse: collapse;
 	width: 100%;
-	height: 100%;
+	
 	list-style: none;
 	text-align: center;
 	max-width: 700px;
@@ -206,22 +206,23 @@
 /****************************************************/
 #LineChart{
 	display: flex;
-	max-height: 300px;
+	max-height: 400px;
 }
 .btnB{
-	display: block;
+	text-align: center;
+	display: center;
 	float: left;
 	width: 90px;
-	height: 70px;
+	height: 60PX;
 	margin: 4px;
 	padding: 0 20px;
-	line-height: 40px;
 	border: none;
 	color: black;
 	background-color: #1F3C45;
 	border-radius: 10px;
 	cursor: pointer;
+	
 }
 .btnB:hover{
-	background: rgb(70, 136, 156);
+	background: rgb(255, 124, 17);
 }
