@@ -70,8 +70,11 @@ let btn4DOM = document.getElementById('showDiv4');
 let btn5DOM = document.getElementById('showDiv5');
 let btn6DOM = document.getElementById('showDiv6');
 
+<<<<<<< HEAD
 //*************************************************
 //*********		Esconder menu lateral*************
+=======
+>>>>>>> 190a380bd76dae92e7d0dfd660821df8333f4c8a
 //*************************************************
 let menu_lateral = document.getElementById('menu-lateral');
 let btn_menu = document.getElementById('btn-menu');
