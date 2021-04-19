@@ -1,4 +1,3 @@
-
 .bodyg{
 	margin: 0;
 	font-family: sans-serif;
@@ -109,27 +108,42 @@
 	text-align: justify;
 }
 /********************************************************/
-/*Seccion de div: cada div es una opcion del menu negro*/
+/*********	Seccion de div: cada div es una opcion del menu negro	*******/
 /******************************************************/
 
 /******************************************************/
 /*----------Div1: Mediciones de Sensores-------------*/
 /****************************************************/
-#div1 table{
+
+/******************************************************/
+/*------------------- Tabla-- -----------------------*/
+/****************************************************/
+#div1 table td{
+	text-align: center;
+    vertical-align: top;
+    padding: 5px;
+}
+#div1 tr:nth-child(even){
+	background-color: white;
+}
+/*#div1 tr:hover td{
+	background-color: #264853;
+	color: black;
+}*/
+.col{
+	background: #264853;
+	border-bottom: solid 3px #101F24;
+	color: white;
+}
+.tabla{
 	display: center;
-	border-collapse: 5px separate;
+	border-collapse: collapse;
 	width: 100%;
 	height: 100%;
 	list-style: none;
 	text-align: center;
-}
-#div1 table td{
-	text-align: center;
-   vertical-align: top;
-   border: 1px solid #000;
-}
-.col{
-	background: #5C5250;
+	max-width: 700px;
+	margin-left: 5px;
 }
 /******************************************************/
 /*Seccion de botones ON-OFF de mediciones de sensores*/
@@ -168,7 +182,7 @@
 	background: yellow;
 }
 /******************************************************/
-/*----------Div3: Control de valvulas-------------*/
+/*-------------Div3: Control de valvulas-------------*/
 /****************************************************/
 .tab-cdv{
 	font-size: x-large;
@@ -187,39 +201,27 @@
 .btnA:hover{
 	background: rgb(52, 52, 52);
 }
-
 /******************************************************/
-/* 					Seccion de POPUP 				 */
+/*------------------- Grafica -----------------------*/
 /****************************************************/
-.pop1{
-	background: #F8F8F8;
-	box-shadow: 0px 0px  5px 0px rgba(0,0,0,0.3);
-	border-radius: 10px;
-	padding: 15px;
-	text-align: center;
-	width: 500px;
-	transition: 0.3s ease all;
-	transform: scale(0.7);
-	opacity: 0;
-}
-
-.pop1.active{
-	transform: scale(1);
-	opacity: 1;
-}
-.overlay{
-	background: rgb(0,0,0,0.3);/* El 4to parametro es trasparencia*/
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	align-items: center;
-	justify-content: center;
+#LineChart{
 	display: flex;
-	visibility: hidden;
+	max-height: 300px;
 }
-
-.overlay.active {
-	visibility: visible;
+.btnB{
+	display: block;
+	float: left;
+	width: 90px;
+	height: 70px;
+	margin: 4px;
+	padding: 0 20px;
+	line-height: 40px;
+	border: none;
+	color: black;
+	background-color: #1F3C45;
+	border-radius: 10px;
+	cursor: pointer;
+}
+.btnB:hover{
+	background: rgb(70, 136, 156);
 }

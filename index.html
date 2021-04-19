@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <title>Monitoreo Web</title>
+    <!************************* HOJA DE ESTILO CSS **************************>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body id="bodyg">
@@ -36,7 +37,7 @@
         <div id="cont" class="contenedor">
 <!**************** Division 1 - Mediciones de sensores ***************>
             <div id="div1" style="display: none">
-                <table>
+                <table class="tabla">
                     <tr >
                         <th class="col" colspan="3">Consentración</th>
                     </tr>
@@ -111,66 +112,24 @@
 <!**************** Division 2 - Historico de mediciones ***************>
 
             <div id="div2" style="display: none">
-                Historico
+                <canvas id="LineChart"></canvas>
+                <button type="button" id="btn1" class="btnB">CO2</button>
+                <button type="button" id="btn1" class="btnB">CH4</button>
+                <button type="button" id="btn1" class="btnB">O2</button>
+                <button type="button" id="btn1" class="btnB">H2S</button>
+                <button type="button" id="btn1" class="btnB">CO2</button>
+                <button type="button" id="btn1" class="btnB">Presión en la atmosfera</button>
+                <button type="button" id="btn1" class="btnB">Presión Interna</button>
+                <button type="button" id="btn1" class="btnB">Presión de entrada</button>
+                <button type="button" id="btn1" class="btnB">Temp SCHT</button>
+                <button type="button" id="btn1" class="btnB">Temp Principal</button>
+                <button type="button" id="btn1" class="btnB">Temp ambiental</button>
+                <button type="button" id="btn1" class="btnB">Humedad</button>
             </div>
 
 <!**************** Division 3 - Control de valvulas ***************>
             <div id="div3" style="display: none">
-                <table class="tab-cdv">
-                    <tr>
-                        <td><label>Valvúla 1</label></td>
-                        <td><label id="out1">"NA"</label></td>
-                        <td><label>ON</label></td>
-                        <td><input type="text"id="in_box1"></td>
-                        <td><button type="button" id="btnA1" class="btnA">Aceptar</button></td>
-                    </tr>
-                    <tr>
-                        <td><label>Valvúla 2</label></td>
-                        <td><label id="out2">"NA"</label></td>
-                        <td><label>OFF</label></td>
-                        <td><input type="text"id="in_box2"></td>
-                        <td><button type="button" id="btnA2" class="btnA">Aceptar</button></td>
-                    </tr>
-                    <tr>
-                        <td><label>Valvúla 3</label></td>
-                        <td><label id="out3">"NA"</label></td>
-                        <td><label>ON</label></td>
-                        <td><input type="text"id="in_box3"></td>
-                        <td><button type="button" id="btnA3" class="btnA">Aceptar</button></td>
-                    </tr>
-                    <tr>
-                        <td><label>Valvúla 4</label></td>
-                        <td><label id="out4">"NA"</label></td>
-                        <td><label>OFF</label></td>
-                        <td><input type="text"id="in_box4"></td>
-                        <td><button type="button" id="btnA4" class="btnA">Aceptar</button></td>
-                    </tr>
-                    <tr>
-                        <td><label>Valvúla 5</label></td>
-                        <td><label id="out5">"NA"</label></td>
-                        <td><label>ON</label></td>
-                        <td><input type="text"id="in_box5"></td>
-                        <td><button type="button" id="btnA5" class="btnA">Aceptar</button></td>
-                    </tr>
-                    <tr>
-                        <td><label>Valvúla 6</label></td>
-                        <td><label id="out6">"NA"</label></td>
-                        <td><label>OFF</label></td><td><label>Inicio</label></td>
-                        <td><select>
-                            <option value="1">00:00</option>
-                            <option value="1">00:30</option>
-                            <option value="1">01:00</option>
-                        </select></td>
-                        <td>
-                        <td><label>Final</label></td>
-                        <td><select>
-                            <option value="1">00:00</option>
-                            <option value="1">00:30</option>
-                            <option value="1">01:00</option>
-                        </select></td>
-                        <td><button type="button" id="btnA6" class="btnA">Aceptar</button></td>
-                    </tr>
-                </table>
+                
 
             </div>
 
@@ -178,7 +137,7 @@
 
             <div id="div4" style="display: none">
                 Estados
-                <button ; type="button" id="btn1" class="btn">Prueba 4</button>
+                <button  type="button" id="btn1" class="btn">Prueba 4</button>
             </div>
 
 <!**************** Division 5 - Reportes ***************>
@@ -214,52 +173,7 @@
         </div>
                 
     </div>
-
-<!************************* HOJA DE ESTILO CSS **************************>
-       <!POPUP de info>
-       <div class="overlay" id="overlay-info1">
-           <div class="pop1" id="pop_info1">
-                <h3 class="titulo-pop">¿Seguro que deseas cambiar el valor?</h3>
-                <h4 class="msg" id="msg-pop">
-                    </h4>
-                <button type="button" id="btn11" class="btnA">Aceptar</button>
-                <button type="button" id="btn12" class="btnA">Cancelar</button>
-
-           </div>
-       </div>
-
-       <div class="overlay" id="overlay-info2">
-           <div class="pop1" id="pop_info2">
-                <h3 class="titulo-pop">¿Seguro que deseas cambiar el valor?</h3>
-                <h4 class="msg" id="msg-pop">
-                    </h4>
-                <button type="button" id="btn21" class="btnA">Aceptar</button>
-                <button type="button" id="btn22" class="btnA">Cancelar</button>
-
-           </div>
-       </div>
-
-       <div class="overlay" id="overlay-info3">
-           <div class="pop1" id="pop_info3">
-                <h3 class="titulo-pop">¿Seguro que deseas cambiar el valor?</h3>
-                <h4 class="msg" id="msg-pop">
-                    </h4>
-                <button type="button" id="btn31" class="btnA">Aceptar</button>
-                <button type="button" id="btn32" class="btnA">Cancelar</button>
-
-           </div>
-       </div>
-
-       <div class="overlay" id="overlay-info4">
-           <div class="pop1" id="pop_info4">
-                <h3 class="titulo-pop">¿Seguro que deseas cambiar el valor?</h3>
-                <h4 class="msg" id="msg-pop">
-                    </h4>
-                <button type="button" id="btn41" class="btnA">Aceptar</button>
-                <button type="button" id="btn42" class="btnA">Cancelar</button>
-
-           </div>
-       </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.0/chart.js"></script>
     <script type="text/javascript" src="codigo.js"></script>
 </body>
 </html>
