@@ -1,4 +1,14 @@
-
+/*Monitoreo Web para reactor
+Desarrolladores:
+*Miguel Orozco Alvarado
+*Isidro Emanuel Rodriguez Perez
+Version: 0.31;
+Paleta de colores CSS
+Barra azul #4E94AB
+Sombra #264853
+Negro menu lateral #27272A
+Sombra de menu lateral #343434
+*/
 .bodyg{
 	margin: 0;
 	font-family: sans-serif;
@@ -27,7 +37,7 @@
 }
 #bot-menu:hover{
 	cursor: pointer;
-	background: rgba(0,0,0,0.3);
+	background: rgba(38, 72, 83);
 }
 #menu-btn .btn-hamburguer{
 	background-color: #fff;
@@ -109,27 +119,41 @@
 	text-align: justify;
 }
 /********************************************************/
-/*Seccion de div: cada div es una opcion del menu negro*/
+/*********	Seccion de div: cada div es una opcion del menu negro	*******/
 /******************************************************/
 
 /******************************************************/
 /*----------Div1: Mediciones de Sensores-------------*/
 /****************************************************/
-#div1 table{
-	display: center;
-	border-collapse: 5px separate;
-	width: 100%;
-	height: 100%;
-	list-style: none;
-	text-align: center;
-}
+
+/******************************************************/
+/*------------------- Tabla-- -----------------------*/
+/****************************************************/
 #div1 table td{
 	text-align: center;
-   vertical-align: top;
-   border: 1px solid #000;
+    vertical-align: top;
+    padding: 5px;
 }
+#div1 tr:nth-child(even){
+	background-color: white;
+}
+/*#div1 tr:hover td{
+	background-color: #264853;
+	color: black;
+}*/
 .col{
-	background: #5C5250;
+	background: #264853;
+	border-bottom: solid 3px #101F24;
+	color: white;
+}
+.tabla{
+	display: relative;
+	border-collapse: collapse;
+	width: 100%;
+	list-style: none;
+	text-align: center;
+	max-width: 700px;
+	margin-left: 5px;
 }
 /******************************************************/
 /*Seccion de botones ON-OFF de mediciones de sensores*/
@@ -168,7 +192,7 @@
 	background: yellow;
 }
 /******************************************************/
-/*----------Div3: Control de valvulas-------------*/
+/*-------------Div3: Control de valvulas-------------*/
 /****************************************************/
 .tab-cdv{
 	font-size: x-large;
@@ -187,41 +211,30 @@
 .btnA:hover{
 	background: rgb(52, 52, 52);
 }
-
 /******************************************************/
-/* 					Seccion de POPUP 				 */
+/*------------------- Grafica -----------------------*/
 /****************************************************/
-.pop1{
-	background: #F8F8F8;
-	box-shadow: 0px 0px  5px 0px rgba(0,0,0,0.3);
-	border-radius: 10px;
-	padding: 15px;
-	text-align: center;
-	width: 500px;
-	transition: 0.3s ease all;
-	transform: scale(0.7);
-	opacity: 0;
-}
-
-.pop1.active{
-	transform: scale(1);
-	opacity: 1;
-}
-.overlay{
-	background: rgb(0,0,0,0.3);/* El 4to parametro es trasparencia*/
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	align-items: center;
-	justify-content: center;
+#LineChart{
 	display: flex;
-	visibility: hidden;
+	max-height: 400px;
 }
-
-.overlay.active {
-	visibility: visible;
+.btnB{
+	text-align: center;
+	display: center;
+	float: left;
+	width: 90px;
+	height: 60PX;
+	margin: 4px;
+	padding: 0 20px;
+	border: none;
+	color: black;
+	background-color: #4E94AB;
+	border-radius: 10px;
+	cursor: pointer;
+	
+}
+.btnB:hover{
+	background: rgb(38, 72, 83);
 }
 
 /******************************************************/
