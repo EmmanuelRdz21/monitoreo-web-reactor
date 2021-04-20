@@ -24,18 +24,18 @@ let lineChart = new Chart(CHART,{
 				label: a,
 				fill: false,
 				lineTension: 0.1,
-				backgroundColor: "rgba(254, 193, 143)",
-				borderColor: "rgba(255, 124, 17)",
+				backgroundColor: "rgba(235, 81, 76)", //Centro cuadro indicador
+				borderColor: "rgba(115, 9, 7)",// COntorno cuadro indicador y grafica
 				borderCapStyle: 'butt',
 				borderDash: [],
 				borderDash0ffset: 0.0,
 				borderJoinStyle: 'miter',
-				pointBorderColor: "rgba(75,192,192,1)",
+				pointBorderColor: "rgba(94, 90, 90)",// corcinferencia indicadora de punto
 				pointBackgroundColor: "#fff",
 				pointBorderWidth: 1,
 				pointHoverRadius: 5,
-				pointHoverBackgroundColor: "rgba(75,192,192,1)",
-				pointHoverBorderColor: "rgba(8, 4, 0)",
+				pointHoverBackgroundColor: "rgba(94, 90, 90)",// Centro, mouse indicador
+				pointHoverBorderColor: "rgba(255, 255, 255)",//Contorno mouse indicador
 				pointHoverBorderWidth: 2,
 				pointRadius: 1,
 				pointhitRadius: 10,
