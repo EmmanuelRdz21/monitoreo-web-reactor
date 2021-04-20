@@ -223,3 +223,41 @@
 .overlay.active {
 	visibility: visible;
 }
+
+/******************************************************/
+/* 		Seccion de tabla de valvulas 				  */
+/******************************************************/
+.tbl-valves {
+	margin-top: 10px;
+	margin-left: 10px;
+	border-collapse: collapse;
+}
+
+.tb-header{
+	border-bottom: 1px solid #fff;
+	background: #4E94AB;
+}
+
+.tb-c{
+	width: 8em;
+}
+
+.tb-r{
+	border-bottom: 1px solid #fff;
+}
+
+.btn-accept{
+	background-color: #4E94AB;
+    border: none;
+    color: white;
+    padding: 7px 45px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-accept:hover{
+	background-color: #27272A;
+}
+
+
