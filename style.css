@@ -1,14 +1,16 @@
-/*Monitoreo Web para reactor
-Desarrolladores:
-*Miguel Orozco Alvarado
-*Isidro Emanuel Rodriguez Perez
-Version: 0.31;
-Paleta de colores CSS
-Barra azul #4E94AB
-Sombra #264853
-Negro menu lateral #27272A
-Sombra de menu lateral #343434
-*/
+/*************************************************************
+****...Monitoreo Web para reactor.........................****
+****...Desarrolladores:...................................****
+****...1.-Miguel Orozco Alvarado..........................****
+****...2.-Isidro Emanuel Rodriguez Perez..................****
+****...Version: 0.31......................................****
+****...Paleta de colores CSS..............................****
+****...Barra azul #4E94AB.................................****
+****...Sombra #264853.....................................****
+****...Negro menu lateral #27272A.........................****
+****...Sombra de menu lateral #343434.....................****
+****...GitHub:............................................****
+****...https://github.com/EmmanuelRdz21/monitoreo-web-reactor*/
 .bodyg{
 	margin: 0;
 	font-family: sans-serif;
@@ -99,7 +101,7 @@ Sombra de menu lateral #343434
 /*			Contenedor de color gris claro			 */
 /****************************************************/
 .contenedor{
-	height:500px;
+	height:550px;
 	padding: 10px;
 	margin: 10px 10px 10px 160px;
 	background-color: #D4D4D4;
@@ -133,18 +135,19 @@ Sombra de menu lateral #343434
 	text-align: center;
     vertical-align: top;
     padding: 5px;
+	border-bottom: solid 3px #fff;
 }
-#div1 tr:nth-child(even){
+/*#div1 tr:nth-child(even){
 	background-color: white;
-}
+}*/
 /*#div1 tr:hover td{
 	background-color: #264853;
 	color: black;
 }*/
 .col{
-	background: #264853;
-	border-bottom: solid 3px #101F24;
-	color: white;
+	background: #4E94AB;
+	border-bottom: solid 3px #fff;
+	color: black;
 }
 .tabla{
 	display: relative;
