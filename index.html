@@ -121,7 +121,6 @@
                 <button type="button" id="btnB2" class="btnB">CH4</button>
                 <button type="button" id="btnB3" class="btnB">O2</button>
                 <button type="button" id="btnB4" class="btnB">H2S</button>
-                <button type="button" id="btnB5" class="btnB">CO2</button>
                 <button type="button" id="btnB6" class="btnB">P atmosfera</button>
                 <button type="button" id="btnB7" class="btnB">P Interna</button>
                 <button type="button" id="btnB8" class="btnB">P de entrada</button>
@@ -129,7 +128,7 @@
                 <button type="button" id="btnB10" class="btnB">Temp Principal</button>
                 <button type="button" id="btnB11" class="btnB">Temp ambiental</button>
                 <button type="button" id="btnB12" class="btnB">Humedad</button>
-                <button type="button" id="btnB13" class="btnC">Descargar</button>
+                <button type="button" id="btnB13" class="btn-accept">Descargar</button>
                 
             </div>
 
@@ -188,23 +187,89 @@
 <!**************** Division 4 - Estados del Hardware ***************>
 
             <div id="div4" style="display: none">
-                Estados
-                <button  type="button" id="btn1" class="btn">Prueba 4</button>
+                
             </div>
 
 <!**************** Division 5 - Reportes ***************>
 
 
             <div id="div5" style="display: none">
-                REPORTES
-                <button ; type="button" id="btn1" class="btn">PRUEBA 5</button>
+                <select id="tipo-dato">
+                    <option value="1">Tiempo de operación</option>
+                    <option value="2">Grafica</option>
+                </select>
+                <select id="tipo-sensor">
+                    <option value="1">CO2</option>
+                    <option value="2">CH4</option>
+                    <option value="3">O2</option>
+                    <option value="4">H2S</option>
+                    <option value="5">Presión en la atmosfera</option>
+                    <option value="6">Presión interna en la camara de sensado</option>
+                    <option value="7">Presión en la entrada de sensado</option>
+                    <option value="8">Temperatura interna SCHT</option>
+                    <option value="9">Temperatura principal</option>
+                    <option value="10">Temperatura ambiental</option>
+                    <option value="11">Humedad</option>
+                </select>
+
+                <button id="agreg">Agregar</button>
+                <table class="tbl-valves">
+
+                    <tr class="tb-header">
+                        <td class="tb-c"><strong>Sensor</strong></td>
+                        <td class="tb-c"><strong>Acción</strong></td>
+                        <td class="tb-c"><strong> </strong></td>
+                    </tr>
+
+                    <tbody id="contenido-tabla">
+                        
+
+
+                    </tbody>
+                    
+                </table>
+                </br></br>
+                <button class="btn-accept">Descargar</button>
+                
+
             </div>
 
 <!**************** Division 6 - Acerca de ***************>
 
-            <div id="div6" style="display: none">
-                ACERCA DE
-                <button ; type="button" id="btn1" class="btn">PRUEBA 6</button>
+            <div class="parrafo" id="div6" style="display: none">
+                <p>
+                    <h2>Subtitulo</h2>
+                 
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </br></br>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                
+                <h2>Subtitulo</h2>
+                
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </br></br>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
             </div>
 
             <div id="out"> 

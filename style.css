@@ -24,6 +24,12 @@
 	width: 50px;
 	box-sizing: border-box;
 }
+
+.parrafo{
+	display: absolute;
+	text-align: justify;
+	
+}
 /******************************************************/
 /*Seccion de botones ON-OFF de mediciones de sensores*/
 /****************************************************/
@@ -109,7 +115,7 @@
 	border-width: 2px;
 	border-radius: 10px;
 	transition: 0.5s;
-
+	display: relative;
 }
 .complete{
 	margin: 10px 10px 10px 10px;
@@ -214,6 +220,21 @@
 .btnA:hover{
 	background: rgb(52, 52, 52);
 }
+/******************************************************/
+/*-------------Div4: Estados de Hw-------------------*/
+/****************************************************/
+
+
+/******************************************************/
+/*-------------Div5: Acerca de-----------------------*/
+/****************************************************/
+.reportes-tabla{
+	text-align: center;
+    vertical-align: top;
+    padding: 5px;
+	border-bottom: solid 3px #fff;
+}
+
 /******************************************************/
 /*------------------- Grafica -----------------------*/
 /****************************************************/

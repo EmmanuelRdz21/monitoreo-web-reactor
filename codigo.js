@@ -60,6 +60,147 @@ let lineChart = new Chart(CHART,{
 
    }	
 });
+//*************************************************
+//				Tabla
+//*************************************************
+let gentabla = document.getElementById('agreg');
+let tabla="";
+
+
+gentabla.addEventListener('click', function(){
+	let sensorOp = document.getElementById('tipo-sensor').value;
+	console.log('añadiendo');
+	let dataType = document.getElementById('tipo-dato').value;
+	let contenid = document.getElementById('contenido-tabla');
+
+	switch (sensorOp){
+		case "1":
+			if (dataType==1) {
+				tabla += "<tr class=\"tb-r\"><td>CO2</td>";
+				tabla += "<td>Tiempo de operación</td></tr>"
+			}
+			else {
+				tabla += "<tr class=\"tb-r\"><td>CO2</td>";
+				tabla += "<td>Grafica</td></tr>"
+			}
+			contenid.innerHTML = tabla;
+		break;
+
+		case "2":
+		if (dataType==1) {
+				tabla += "<tr class=\"tb-r\"><td>CH4</td>";
+				tabla += "<td>Tiempo de operación</td></tr>"
+			}
+			else {
+				tabla += "<tr class=\"tb-r\"><td>CH4</td>";
+				tabla += "<td>Grafica</td></tr>"
+			}
+			contenid.innerHTML = tabla;
+		break;
+
+		case "3":
+		if (dataType==1) {
+				tabla += "<tr class=\"tb-r\"><td>O2</td>";
+				tabla += "<td>Tiempo de operación</td></tr>"
+			}
+			else {
+				tabla += "<tr class=\"tb-r\"><td>O2</td>";
+				tabla += "<td>Grafica</td></tr>"
+			}
+			contenid.innerHTML = tabla;
+		break;
+		case "4":
+		if (dataType==1) {
+				tabla += "<tr class=\"tb-r\"><td>H22</td>";
+				tabla += "<td>Tiempo de operación</td></tr>"
+			}
+			else {
+				tabla += "<tr class=\"tb-r\"><td>H2S</td>";
+				tabla += "<td>Grafica</td></tr>"
+			}
+			contenid.innerHTML = tabla;
+		break;
+		case "5":
+		if (dataType==1) {
+				tabla += "<tr class=\"tb-r\"><td>Presión para la atmosfera</td>";
+				tabla += "<td>Tiempo de operación</td></tr>"
+			}
+			else {
+				tabla += "<tr class=\"tb-r\"><td>Presión para la atmosfera</td>";
+				tabla += "<td>Grafica</td></tr>"
+			}
+			contenid.innerHTML = tabla;
+		break;
+		case "6":
+		if (dataType==1) {
+				tabla += "<tr class=\"tb-r\"><td>Presión interna de la camara de sensado</td>";
+				tabla += "<td>Tiempo de operación</td></tr>"
+			}
+			else {
+				tabla += "<tr class=\"tb-r\"><td>Presión interna de la camara de sensado</td>";
+				tabla += "<td>Grafica</td></tr>"
+			}
+			contenid.innerHTML = tabla;
+		break;
+		case "7":
+		if (dataType==1) {
+				tabla += "<tr class=\"tb-r\"><td>Presión entrada a la camara de sensado</td>";
+				tabla += "<td>Tiempo de operación</td></tr>"
+			}
+			else {
+				tabla += "<tr class=\"tb-r\"><td>Presión entrada a la camara de sensado</td>";
+				tabla += "<td>Grafica</td></tr>"
+			}
+			contenid.innerHTML = tabla;
+		break;
+		case "8":
+		if (dataType==1) {
+				tabla += "<tr class=\"tb-r\"><td>Temperatura interna SCHT</td>";
+				tabla += "<td>Tiempo de operación</td></tr>"
+			}
+			else {
+				tabla += "<tr class=\"tb-r\"><td>Temperatura interna SCHT</td>";
+				tabla += "<td>Grafica</td></tr>"
+			}
+			contenid.innerHTML = tabla;
+		break;
+		case "9":
+		if (dataType==1) {
+				tabla += "<tr class=\"tb-r\"><td>Temperatura principal</td>";
+				tabla += "<td>Tiempo de operación</td></tr>"
+			}
+			else {
+				tabla += "<tr class=\"tb-r\"><td>Temperatura principal</td>";
+				tabla += "<td>Grafica</td></tr>"
+			}
+			contenid.innerHTML = tabla;
+		break;
+		case "10":
+		if (dataType==1) {
+				tabla += "<tr class=\"tb-r\"><td>Temperatura ambiental    </td>";
+				tabla += "<td>Tiempo de operación</td></tr>"
+			}
+			else {
+				tabla += "<tr class=\"tb-r\"><td>Temperatura ambiental</td>";
+				tabla += "<td>Grafica</td></tr>"
+			}
+			contenid.innerHTML = tabla;
+		break;
+		case "11":
+		if (dataType==1) {
+				tabla += "<tr class=\"tb-r\"><td>Humedad</td>";
+				tabla += "<td>Tiempo de operación</td></tr>"
+			}
+			else {
+				tabla += "<tr class=\"tb-r\"><td>Humedad</td>";
+				tabla += "<td>Grafica</td></tr>"
+			}
+			contenid.innerHTML = tabla;
+		break;
+
+	}
+
+});
 
 //*************************************************
 //				Declaraciones
