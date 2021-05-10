@@ -430,6 +430,3 @@ btn6DOM.addEventListener('click', function(){
 	document.getElementById('div6').style.display = '';
 	document.getElementById('out').style.display = 'none';
 });
-
-
-

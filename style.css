@@ -400,7 +400,11 @@
     opacity: 1;
     visibility: visible;
 }
-/*aqui se acaba*/
+/*aqui se acaba*/.
+
+
+
+
 /*--------------------------------------*/
 .contenedor2 figure .capa{/*Tint*/
     position: absolute;
@@ -430,6 +434,7 @@
     opacity: 0.5;
     visibility: visible;
 }
+
 .contenedor22 figure .capa2{/*Pint*/
     position: absolute;
     top: 0;
