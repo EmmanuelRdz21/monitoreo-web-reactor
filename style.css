@@ -9,6 +9,10 @@
 ****...Sombra #264853.....................................****
 ****...Negro menu lateral #27272A.........................****
 ****...Sombra de menu lateral #343434.....................****
+****...Verde sensores 31,179,0............................****
+****...Rojo Sensores 235,21,15............................****
+****...Amarillo Sensores 255,254,0........................****
+****...Gris Sensores 97,97,94.............................****
 ****...GitHub:............................................****
 ****...https://github.com/EmmanuelRdz21/monitoreo-web-reactor*/
 .bodyg{
@@ -23,12 +27,6 @@
 	padding: 10px;
 	width: 50px;
 	box-sizing: border-box;
-}
-
-.parrafo{
-	display: absolute;
-	text-align: justify;
-	
 }
 /******************************************************/
 /*Seccion de botones ON-OFF de mediciones de sensores*/
@@ -69,6 +67,7 @@
 	border: 1px solid #0f0; 
 	margin: 1px auto;
 	background-color: #fff;
+	display: absolute;
 }
 /******************************************************/
 /*		Menú de opciones color negro				 */
@@ -107,7 +106,7 @@
 /*			Contenedor de color gris claro			 */
 /****************************************************/
 .contenedor{
-	height:550px;
+	height:600px;
 	padding: 10px;
 	margin: 10px 10px 10px 160px;
 	background-color: #D4D4D4;
@@ -115,7 +114,9 @@
 	border-width: 2px;
 	border-radius: 10px;
 	transition: 0.5s;
-	display: relative;
+	display: absolute;
+	min-width: 900px;
+
 }
 .complete{
 	margin: 10px 10px 10px 10px;
@@ -126,9 +127,9 @@
 #out{
 	text-align: justify;
 }
-/********************************************************/
+/***************************************************************************/
 /*********	Seccion de div: cada div es una opcion del menu negro	*******/
-/******************************************************/
+/*************************************************************************/
 
 /******************************************************/
 /*----------Div1: Mediciones de Sensores-------------*/
@@ -143,13 +144,10 @@
     padding: 5px;
 	border-bottom: solid 3px #fff;
 }
-/*#div1 tr:nth-child(even){
-	background-color: white;
-}*/
-/*#div1 tr:hover td{
-	background-color: #264853;
-	color: black;
-}*/
+#div1{
+	top: 0px;
+	display: relative;
+}
 .col{
 	background: #4E94AB;
 	border-bottom: solid 3px #fff;
@@ -161,7 +159,7 @@
 	width: 100%;
 	list-style: none;
 	text-align: center;
-	max-width: 700px;
+	max-width: 650px;
 	margin-left: 5px;
 }
 /******************************************************/
@@ -200,6 +198,34 @@
 .ON-OFF11{
 	background: yellow;
 }
+/*******************************************************/
+/*----------Div2: Historico de mediciones-------------*/
+/*****************************************************/
+.btnB{
+	text-align: center;
+	display: center;
+	float: left;
+	width: 90px;
+	height: 60PX;
+	margin: 4px;
+	padding: 0 20px;
+	border: none;
+	color: black;
+	background-color: #4E94AB;
+	border-radius: 10px;
+	cursor: pointer;
+	
+}
+.btnB:hover{
+	background: rgb(38, 72, 83);
+}
+/******************************************************/
+/*------------------- Grafica -----------------------*/
+/****************************************************/
+#LineChart{
+	display: flex;
+	max-height: 400px;
+}
 /******************************************************/
 /*-------------Div3: Control de valvulas-------------*/
 /****************************************************/
@@ -223,44 +249,427 @@
 /******************************************************/
 /*-------------Div4: Estados de Hw-------------------*/
 /****************************************************/
+#div4{
+	overflow:scroll;
+    height:600px;
+    width:1000px;
+    display: relative;
+}
+.imgR{
+	width: auto;
+	height: auto;
+	margin-left: auto;
+    margin-right: auto;
+	margin: auto;
+	max-height: 500px;
+	max-width: 1100px;
+	display: absolute;
+}
+.capatodos{
+	max-width: 50px;
+    max-height: 50px;
+    width: auto;
+    height: auto;
+    position: relative;
+}
+#cont2{/*Tint*/
+	display: inline-block;
+    top: -350px;
+    left: 15%;
+    display: relative;
+}
+#cont3{/*Pint*/
+    top: -440px;
+    left: 32%;
+    display: relative;
+}
+#cont4{ /*V1*/
+    top: -500px;
+    left: 40.5%;
+    display: relative;
+}
+#cont5{/*V2*/
+    top: -486px;
+    left: 49%;
+    display: relative;
+}
+#cont6{/*V3*/
+    top: -755px;
+    left: 54%;
+    display: relative;
+}
+#cont7{/*V4*/
+    top: -750px;
+    left: 63%;
+    display: relative;
+}
+#cont8{/*V5*/
+    top: -730px;
+    left: 63%;
+    display: relative;
+}
+#cont9{/*V6*/
+    top: -750px;
+    left: 56%;
+    display: relative;
+}
+#cont10{/*Pamb*/
+    top: -790px;
+    left: 26%;
+    display: relative;
+}
+#cont11{/*Tamb Salida*/
+    top: -770px;
+    left: 26%;
+    display: relative;
+}
+#cont12{/*O2*/
+    top: -790px;
+    left: 82%;
+    display: relative;
+}
+#cont13{/*CH4*/
+    top: -980px;
+    left: 83%;
+    display: relative;
+}
+#cont14{/*CO2*/
+    top: -1290px;
+    left: 83%;
+    display: relative;
+}
+#cont15{/*H2S*/
+    top: -1272px;
+    left: 73%;
+    display: relative;
+}
+#cont16{/*Pext*/
+    top: -1130px;
+    left: 55%;
+    display: relative;
+}
+#cont17{/*HR??????*/
+    top: -1200px;
+    left: 40%;
+    display: relative;
+}
+#cont18{/*HR??????*/
+    top: -1595px;
+    left: 2%;
+    display: relative;
+}
+/*Propiedades para todos los sensores*/
+.contenedor2-full{
+    position:relative;
+    height: 3%;
+    cursor: pointer;
+    width: 50px;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0px 15px 25px rgba(0,0,0,0.50);
+    display: relative;
+}
+.capatodos:hover{
+    transform: scale(3.5);
+}
+.sens1{
+    width: 100%;
+    height: 100%;
+    transition: all 400ms ease-out;
+    will-change: transform;
+    display: relative;
+}
+.name-sens{
+    color: black;
+    font-size: 0.5em;
+    margin-bottom: 60px;
+    transition: all 400ms ease-out;
+    margin-top: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+/*Aqui empieza*/
+.capatodos figure:hover > .full {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,103,123,0.7);
+    transition: all 400ms ease-out;
+    text-align: center;
+    opacity: 1;
+    visibility: visible;
+}
+/*aqui se acaba*/
+/*--------------------------------------*/
+.contenedor2 figure .capa{/*Tint*/
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(31,179,0);
+    transition: all 400ms ease-out;
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+    opacity: 0.5;
+    visibility: visible;
+}
 
-
-/******************************************************/
-/*-------------Div5: Acerca de-----------------------*/
-/****************************************************/
-.reportes-tabla{
-	text-align: center;
-    vertical-align: top;
-    padding: 5px;
-	border-bottom: solid 3px #fff;
+/*********************************/
+.contenedor3 figure .capa4{/*V1*/
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(31,179,0);
+    transition: all 400ms ease-out;
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+    opacity: 0.5;
+    visibility: visible;
+}
+.contenedor22 figure .capa2{/*Pint*/
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(97,97,94);
+    transition: all 400ms ease-out;
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+    opacity: 0.5;
+    visibility: visible;
+}
+.contenedor4 figure .capa5{/*V2*/
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(31,179,0);
+    transition: all 400ms ease-out;
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+    opacity: 0.5;
+    visibility: visible;
+}
+.contenedor5 figure .capa6{/*V3*/
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(31,179,0);
+    transition: all 400ms ease-out;
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+    opacity: 0.5;
+    visibility: visible;
+}
+.contenedor6 figure .capa7{/*V4*/
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(31,179,0);
+    transition: all 400ms ease-out;
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+    opacity: 0.5;
+    visibility: visible;
+}
+.contenedor7 figure .capa8{/*V5*/
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(31,179,0);
+    transition: all 400ms ease-out;
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+    opacity: 0.5;
+    visibility: visible;
+}
+.contenedor8 figure .capa9{/*V6*/
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(31,179,0);
+    transition: all 400ms ease-out;
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+    opacity: 0.5;
+    visibility: visible;
+}
+.contenedor9 figure .capa10{/*Pamb*/
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(31,179,0);
+    transition: all 400ms ease-out;
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+    opacity: 0.5;
+    visibility: visible;
+}
+.contenedor10 figure .capa11{/*Tamb Salida*/
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(31,179,0);
+    transition: all 400ms ease-out;
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+    opacity: 0.5;
+    visibility: visible;
+}
+.contenedor11 figure .capa12{/*O2*/
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(235,21,15);
+    transition: all 400ms ease-out;
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+    opacity: 0.5;
+    visibility: visible;
+}
+.contenedor12 figure .capa13{/*CH4*/
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(31,179,0);
+    transition: all 400ms ease-out;
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+    opacity: 0.5;
+    visibility: visible;
+}
+.contenedor13 figure .capa14{/*CO2*/
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,254,0);
+    transition: all 400ms ease-out;
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+    opacity: 0.5;
+    visibility: visible;
+}
+.contenedor14 figure .capa15{/*H2S*/
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(235,21,15);
+    transition: all 400ms ease-out;
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+    opacity: 0.5;
+    visibility: visible;
+}
+.contenedor15 figure .capa16{/*Pext*/
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(97,97,94);
+    transition: all 400ms ease-out;
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+    opacity: 0.5;
+    visibility: visible;
+}
+.contenedor16 figure .capa17{/*HR*/
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,254,0);
+    transition: all 400ms ease-out;
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+    opacity: 0.5;
+    visibility: visible;
+}
+.contenedor17 figure .capa18{/*Humedad ?*/
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,254,0);
+    transition: all 400ms ease-out;
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+    opacity: 0.5;
+    visibility: visible;
+}
+.parrafo{
+    color: black;
+    font-size: 0.2em;
+    margin-bottom: 60px;
+    transition: all 400ms ease-out;
+    margin-top: 0px;
+}
+.contenedor22{
+	max-width: 200px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    position: relative;
 }
 
 /******************************************************/
-/*------------------- Grafica -----------------------*/
+/*-------------Div5: Reportes------------------------*/
 /****************************************************/
-#LineChart{
-	display: flex;
-	max-height: 400px;
+#div5{
+	overflow:scroll;
+    height:600px;
+    width:530px;
+    display: relative;
 }
-.btnB{
-	text-align: center;
-	display: center;
-	float: left;
-	width: 90px;
-	height: 60PX;
-	margin: 4px;
-	padding: 0 20px;
-	border: none;
-	color: black;
-	background-color: #4E94AB;
-	border-radius: 10px;
-	cursor: pointer;
-	
+#div5 table {
+	top: 500px;
+    width:500px;
+    background-color:lightgray;
 }
-.btnB:hover{
-	background: rgb(38, 72, 83);
+/*.tb-header1{
+	position: fixed;
+	border-bottom: 1px solid #fff;
+	background: #4E94AB;
+	width: 410px;
 }
-
+*/
+/******************************************************/
+/*-------------Div6: Acerca de-----------------------*/
+/****************************************************/
+.acercade{
+	display: relative;
+	text-align: justify;
+	word-wrap: break-word;
+	font-size: auto;
+}
 /******************************************************/
 /* 		Seccion de tabla de valvulas 				  */
 /******************************************************/
@@ -276,11 +685,12 @@
 }
 
 .tb-c{
-	width: 8em;
+	width: 12em;
 }
 
 .tb-r{
 	border-bottom: 1px solid #fff;
+	width: 12em;
 }
 
 .btn-accept{
@@ -291,10 +701,9 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    display: relative;
 }
 
 .btn-accept:hover{
-	background-color: #27272A;
+	background-color: #264853;
 }
-
-

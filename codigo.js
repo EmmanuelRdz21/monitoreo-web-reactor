@@ -65,141 +65,279 @@ let lineChart = new Chart(CHART,{
 //*************************************************
 let gentabla = document.getElementById('agreg');
 let tabla="";
-
+let contador=0;
+let v = [22];
 
 gentabla.addEventListener('click', function(){
 	let sensorOp = document.getElementById('tipo-sensor').value;
-	console.log('añadiendo');
 	let dataType = document.getElementById('tipo-dato').value;
 	let contenid = document.getElementById('contenido-tabla');
-
-	switch (sensorOp){
+	
+	if (contador < 34) {
+		switch (sensorOp){
 		case "1":
-			if (dataType==1) {
+			if (dataType==1 && v[0]!=1) {
 				tabla += "<tr class=\"tb-r\"><td>CO2</td>";
 				tabla += "<td>Tiempo de operación</td></tr>"
+				v[0]=1;
+				contador ++;
 			}
-			else {
+			else if(dataType==2 && v[1]!=1) {
 				tabla += "<tr class=\"tb-r\"><td>CO2</td>";
-				tabla += "<td>Grafica</td></tr>"
+				tabla += "<td>Gráfica</td></tr>"
+				v[1]=1;
+				contador ++;
 			}
 			contenid.innerHTML = tabla;
 		break;
 
 		case "2":
-		if (dataType==1) {
+			if (dataType==1 && v[2]!=1) {
 				tabla += "<tr class=\"tb-r\"><td>CH4</td>";
-				tabla += "<td>Tiempo de operación</td></tr>"
+				tabla += "<td>Tiempo de operación</td></tr>";
+				v[2]=1;
+				contador ++;
 			}
-			else {
+			else if (dataType==2 && v[3]!=1){
 				tabla += "<tr class=\"tb-r\"><td>CH4</td>";
-				tabla += "<td>Grafica</td></tr>"
+				tabla += "<td>Gráfica</td></tr>";
+				v[3]=1;
+				contador ++;
 			}
 			contenid.innerHTML = tabla;
 		break;
 
 		case "3":
-		if (dataType==1) {
+			if (dataType==1 && v[4]!=1) {
 				tabla += "<tr class=\"tb-r\"><td>O2</td>";
-				tabla += "<td>Tiempo de operación</td></tr>"
+				tabla += "<td>Tiempo de operación</td></tr>";
+				v[4]=1
+				contador ++;
 			}
-			else {
+			else if (dataType==2 && v[5]!=1){
 				tabla += "<tr class=\"tb-r\"><td>O2</td>";
-				tabla += "<td>Grafica</td></tr>"
+				tabla += "<td>Gráfica</td></tr>";
+				v[5]=1;
+				contador ++;
 			}
 			contenid.innerHTML = tabla;
 		break;
 		case "4":
-		if (dataType==1) {
-				tabla += "<tr class=\"tb-r\"><td>H22</td>";
-				tabla += "<td>Tiempo de operación</td></tr>"
-			}
-			else {
+			if (dataType==1 && v[6]!=1) {
 				tabla += "<tr class=\"tb-r\"><td>H2S</td>";
-				tabla += "<td>Grafica</td></tr>"
+				tabla += "<td>Tiempo de operación</td></tr>";
+				v[6]=1;
+				contador ++;
+			}
+			else if (dataType==2 && v[7]!=1){
+				tabla += "<tr class=\"tb-r\"><td>H2S</td>";
+				tabla += "<td>Gráfica</td></tr>";
+				v[7]=1;
+				contador ++;
 			}
 			contenid.innerHTML = tabla;
 		break;
 		case "5":
-		if (dataType==1) {
-				tabla += "<tr class=\"tb-r\"><td>Presión para la atmosfera</td>";
-				tabla += "<td>Tiempo de operación</td></tr>"
+			if (dataType==1 && v[8]!=1) {
+				tabla += "<tr class=\"tb-r\"><td>Presión en la atmósfera</td>";
+				tabla += "<td>Tiempo de operación</td></tr>";
+				v[8]=1;
+				contador ++;
 			}
-			else {
-				tabla += "<tr class=\"tb-r\"><td>Presión para la atmosfera</td>";
-				tabla += "<td>Grafica</td></tr>"
+			else if (dataType==2 && v[9]!=1){
+				tabla += "<tr class=\"tb-r\"><td>Presión en la atmósfera</td>";
+				tabla += "<td>Gráfica</td></tr>";
+				v[9]=1;
+				contador ++;
 			}
 			contenid.innerHTML = tabla;
 		break;
 		case "6":
-		if (dataType==1) {
-				tabla += "<tr class=\"tb-r\"><td>Presión interna de la camara de sensado</td>";
-				tabla += "<td>Tiempo de operación</td></tr>"
+			if (dataType==1 && v[10]!=1) {
+				tabla += "<tr class=\"tb-r\"><td>Presión interna</td>";
+				tabla += "<td>Tiempo de operación</td></tr>";
+				v[10]=1;
+				contador ++;
 			}
-			else {
-				tabla += "<tr class=\"tb-r\"><td>Presión interna de la camara de sensado</td>";
-				tabla += "<td>Grafica</td></tr>"
+			else if (dataType==2 && v[11]!=1){
+				tabla += "<tr class=\"tb-r\"><td>Presión interna</td>";
+				tabla += "<td>Gráfica</td></tr>";
+				v[11]=1;
+				contador ++;
 			}
 			contenid.innerHTML = tabla;
 		break;
 		case "7":
-		if (dataType==1) {
-				tabla += "<tr class=\"tb-r\"><td>Presión entrada a la camara de sensado</td>";
-				tabla += "<td>Tiempo de operación</td></tr>"
+			if (dataType==1 && v[12]!=1) {
+				tabla += "<tr class=\"tb-r\"><td>Presión de entrada en la cámara</td>";
+				tabla += "<td>Tiempo de operación</td></tr>";
+				v[12]=1;
+				contador ++;
 			}
-			else {
-				tabla += "<tr class=\"tb-r\"><td>Presión entrada a la camara de sensado</td>";
-				tabla += "<td>Grafica</td></tr>"
+			else if (dataType==2 && v[13]!=1){
+				tabla += "<tr class=\"tb-r\"><td>Presión de entrada en la cámara</td>";
+				tabla += "<td>Gráfica</td></tr>";
+				v[13]=1;
+				contador ++;
 			}
 			contenid.innerHTML = tabla;
 		break;
 		case "8":
-		if (dataType==1) {
+			if (dataType==1 && v[14]!=1) {
 				tabla += "<tr class=\"tb-r\"><td>Temperatura interna SCHT</td>";
-				tabla += "<td>Tiempo de operación</td></tr>"
+				tabla += "<td>Tiempo de operación</td></tr>";
+				v[14]=1;
+				contador ++;
 			}
-			else {
+			else if (dataType==2 && v[15]!=1){
 				tabla += "<tr class=\"tb-r\"><td>Temperatura interna SCHT</td>";
-				tabla += "<td>Grafica</td></tr>"
+				tabla += "<td>Gráfica</td></tr>";
+				v[15]=1;
+				contador ++;
 			}
 			contenid.innerHTML = tabla;
 		break;
 		case "9":
-		if (dataType==1) {
+			if (dataType==1 && v[16]!=1) {
 				tabla += "<tr class=\"tb-r\"><td>Temperatura principal</td>";
-				tabla += "<td>Tiempo de operación</td></tr>"
+				tabla += "<td>Tiempo de operación</td></tr>";
+				v[16]=1;
+				contador ++;
 			}
-			else {
+			else if (dataType==2 && v[17]!=1){
 				tabla += "<tr class=\"tb-r\"><td>Temperatura principal</td>";
-				tabla += "<td>Grafica</td></tr>"
+				tabla += "<td>Gráfica</td></tr>";
+				v[17]=1;
+				contador ++;
 			}
 			contenid.innerHTML = tabla;
 		break;
 		case "10":
-		if (dataType==1) {
+			if (dataType==1 && v[18]!=1) {
 				tabla += "<tr class=\"tb-r\"><td>Temperatura ambiental    </td>";
-				tabla += "<td>Tiempo de operación</td></tr>"
+				tabla += "<td>Tiempo de operación</td></tr>";
+				v[18]=1;
+				contador ++;
 			}
-			else {
+			else if (dataType==2 && v[19]!=1){
 				tabla += "<tr class=\"tb-r\"><td>Temperatura ambiental</td>";
-				tabla += "<td>Grafica</td></tr>"
+				tabla += "<td>Gráfica</td></tr>";
+				v[19]=1;
+				contador ++;
 			}
 			contenid.innerHTML = tabla;
 		break;
 		case "11":
-		if (dataType==1) {
+			if (dataType==1 && v[20]!=1) {
 				tabla += "<tr class=\"tb-r\"><td>Humedad</td>";
-				tabla += "<td>Tiempo de operación</td></tr>"
+				tabla += "<td>Tiempo de operación</td></tr>";
+				v[20]=1;
+				contador ++;
 			}
-			else {
+			else if (dataType==2 && v[21]!=1){
 				tabla += "<tr class=\"tb-r\"><td>Humedad</td>";
-				tabla += "<td>Grafica</td></tr>"
+				tabla += "<td>Gráfica</td></tr>";
+				v[21]=1;
+				contador ++;
+			}
+			contenid.innerHTML = tabla;
+		break;
+		case "12":
+			if (dataType==1 && v[22]!=1) {
+				tabla += "<tr class=\"tb-r\"><td>V1</td>";
+				tabla += "<td>Tiempo de operación</td></tr>";
+				v[22]=1;
+				contador ++;
+			}
+			else if (dataType==2 && v[23]!=1){
+				tabla += "<tr class=\"tb-r\"><td>V1</td>";
+				tabla += "<td>Gráfica</td></tr>";
+				v[23]=1;
+				contador ++;
+			}
+			contenid.innerHTML = tabla;
+		break;
+		case "13":
+			if (dataType==1 && v[24]!=1) {
+				tabla += "<tr class=\"tb-r\"><td>V2</td>";
+				tabla += "<td>Tiempo de operación</td></tr>";
+				v[24]=1;
+				contador ++;
+			}
+			else if (dataType==2 && v[25]!=1){
+				tabla += "<tr class=\"tb-r\"><td>V2</td>";
+				tabla += "<td>Gráfica</td></tr>";
+				v[25]=1;
+				contador ++;
+			}
+			contenid.innerHTML = tabla;
+		break;
+		case "14":
+			if (dataType==1 && v[26]!=1) {
+				tabla += "<tr class=\"tb-r\"><td>V3</td>";
+				tabla += "<td>Tiempo de operación</td></tr>";
+				v[26]=1;
+				contador ++;
+			}
+			else if (dataType==2 && v[27]!=1){
+				tabla += "<tr class=\"tb-r\"><td>V3</td>";
+				tabla += "<td>Gráfica</td></tr>";
+				v[27]=1;
+				contador ++;
+			}
+			contenid.innerHTML = tabla;
+		break;
+		case "15":
+			if (dataType==1 && v[28]!=1) {
+				tabla += "<tr class=\"tb-r\"><td>V4</td>";
+				tabla += "<td>Tiempo de operación</td></tr>";
+				v[28]=1;
+				contador ++;
+			}
+			else if (dataType==2 && v[29]!=1){
+				tabla += "<tr class=\"tb-r\"><td>V4</td>";
+				tabla += "<td>Gráfica</td></tr>";
+				v[29]=1;
+				contador ++;
+			}
+			contenid.innerHTML = tabla;
+		break;
+		case "16":
+			if (dataType==1 && v[30]!=1) {
+				tabla += "<tr class=\"tb-r\"><td>V5</td>";
+				tabla += "<td>Tiempo de operación</td></tr>";
+				v[30]=1;
+				contador ++;
+			}
+			else if (dataType==2 && v[31]!=1){
+				tabla += "<tr class=\"tb-r\"><td>V5</td>";
+				tabla += "<td>Gráfica</td></tr>";
+				v[31]=1;
+				contador ++;
+			}
+			contenid.innerHTML = tabla;
+		break;
+		case "17":
+			if (dataType==1 && v[32]!=1) {
+				tabla += "<tr class=\"tb-r\"><td>V6</td>";
+				tabla += "<td>Tiempo de operación</td></tr>";
+				v[32]=1;
+				contador ++;
+			}
+			else if (dataType==2 && v[33]!=1){
+				tabla += "<tr class=\"tb-r\"><td>V6</td>";
+				tabla += "<td>Gráfica</td></tr>";
+				v[33]=1;
+				contador ++;
 			}
 			contenid.innerHTML = tabla;
 		break;
 
+		}
 	}
-
+	else{
+		alert("Ya excedió en número de renglones");
+	}
 });
 
 //*************************************************
