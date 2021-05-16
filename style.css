@@ -146,7 +146,7 @@
 }
 #div1{
 	top: 0px;
-	display: relative;
+	display: absolute;
 }
 .col{
 	background: #4E94AB;
@@ -154,6 +154,9 @@
 	color: black;
 }
 .tabla{
+	margin-top: -65px;
+	margin-left: 10px;
+	top: 0px;
 	display: relative;
 	border-collapse: collapse;
 	width: 100%;
@@ -354,8 +357,8 @@
     display: relative;
 }
 #cont18{/*HR??????*/
-    top: -1595px;
-    left: 2%;
+    top: -1505px;
+    left: 45%;
     display: relative;
 }
 /*Propiedades para todos los sensores*/
@@ -371,6 +374,7 @@
 }
 .capatodos:hover{
     transform: scale(3.5);
+    z-index: 2;
 }
 .sens1{
     width: 100%;
@@ -400,11 +404,7 @@
     opacity: 1;
     visibility: visible;
 }
-/*aqui se acaba*/.
-
-
-
-
+/*aqui se acaba*/
 /*--------------------------------------*/
 .contenedor2 figure .capa{/*Tint*/
     position: absolute;
@@ -434,7 +434,6 @@
     opacity: 0.5;
     visibility: visible;
 }
-
 .contenedor22 figure .capa2{/*Pint*/
     position: absolute;
     top: 0;
@@ -637,7 +636,28 @@
     transition: all 400ms ease-out;
     margin-top: 0px;
 }
-.contenedor22{
+.contenedor11{
+	max-width: 200px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    position: relative;
+}
+.contenedor12{
+	max-width: 200px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    position: relative;
+}
+.contenedor13{
+	max-width: 200px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    position: relative;
+}
+.contenedor14{
 	max-width: 200px;
     max-height: 200px;
     width: auto;
@@ -702,7 +722,7 @@
 	background-color: #4E94AB;
     border: none;
     color: white;
-    padding: 7px 45px;
+    padding: 7px 90px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -711,4 +731,5 @@
 
 .btn-accept:hover{
 	background-color: #264853;
+	cursor: pointer;
 }
