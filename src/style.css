@@ -257,6 +257,7 @@
     height:600px;
     width:1000px;
     display: relative;
+    max-height: 600px;
 }
 .imgR{
 	width: auto;
@@ -266,7 +267,6 @@
 	margin: auto;
 	max-height: 500px;
 	max-width: 1100px;
-	display: absolute;
 }
 .capatodos{
 	max-width: 50px;
