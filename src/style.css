@@ -168,38 +168,17 @@
 /******************************************************/
 /*Seccion de botones ON-OFF de mediciones de sensores*/
 /****************************************************/
-.ON-OFF1{
+.ON{
 	background: green;
 }
-.ON-OFF2{
+.OFF{
 	background: red;
 }
-.ON-OFF3{
-	background: green;
-}
-.ON-OFF4{
-	background: red;
-}
-.ON-OFF5{
+.mto{
 	background: yellow;
 }
-.ON-OFF6{
+.OFF-line{
 	background: grey;
-}
-.ON-OFF7{
-	background: red;
-}
-.ON-OFF8{
-	background: yellow;
-}
-.ON-OFF9{
-	background: grey;
-}
-.ON-OFF10{
-	background: green;
-}
-.ON-OFF11{
-	background: yellow;
 }
 /*******************************************************/
 /*----------Div2: Historico de mediciones-------------*/
@@ -411,13 +390,25 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(31,179,0);
+    
     transition: all 400ms ease-out;
     opacity: 0;
     visibility: hidden;
     text-align: center;
     opacity: 0.5;
     visibility: visible;
+}
+.RED{
+    background: rgba(235,21,15);
+}
+.GREEN{
+    background: rgba(31,179,0);
+}
+.GRAY{
+    background: rgba(97,97,94);
+}
+.YELLOW{
+    background: rgba(255,254,0);
 }
 
 /*********************************/
@@ -426,7 +417,6 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(31,179,0);
     transition: all 400ms ease-out;
     opacity: 0;
     visibility: hidden;
@@ -439,7 +429,6 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(97,97,94);
     transition: all 400ms ease-out;
     opacity: 0;
     visibility: hidden;
@@ -452,7 +441,6 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(31,179,0);
     transition: all 400ms ease-out;
     opacity: 0;
     visibility: hidden;
@@ -465,7 +453,6 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(31,179,0);
     transition: all 400ms ease-out;
     opacity: 0;
     visibility: hidden;
@@ -478,7 +465,6 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(31,179,0);
     transition: all 400ms ease-out;
     opacity: 0;
     visibility: hidden;
@@ -491,7 +477,6 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(31,179,0);
     transition: all 400ms ease-out;
     opacity: 0;
     visibility: hidden;
@@ -504,7 +489,6 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(31,179,0);
     transition: all 400ms ease-out;
     opacity: 0;
     visibility: hidden;
@@ -517,7 +501,6 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(31,179,0);
     transition: all 400ms ease-out;
     opacity: 0;
     visibility: hidden;
@@ -530,7 +513,6 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(31,179,0);
     transition: all 400ms ease-out;
     opacity: 0;
     visibility: hidden;
@@ -543,7 +525,6 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(235,21,15);
     transition: all 400ms ease-out;
     opacity: 0;
     visibility: hidden;
@@ -556,7 +537,6 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(31,179,0);
     transition: all 400ms ease-out;
     opacity: 0;
     visibility: hidden;
@@ -569,7 +549,6 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255,254,0);
     transition: all 400ms ease-out;
     opacity: 0;
     visibility: hidden;
@@ -582,7 +561,6 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(235,21,15);
     transition: all 400ms ease-out;
     opacity: 0;
     visibility: hidden;
@@ -595,7 +573,6 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(97,97,94);
     transition: all 400ms ease-out;
     opacity: 0;
     visibility: hidden;
@@ -608,7 +585,6 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255,254,0);
     transition: all 400ms ease-out;
     opacity: 0;
     visibility: hidden;
@@ -621,7 +597,6 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255,254,0);
     transition: all 400ms ease-out;
     opacity: 0;
     visibility: hidden;
