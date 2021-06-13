@@ -117,18 +117,18 @@
 
             <div id="div2" style="display: none">
                 <canvas id="LineChart"></canvas>
-                <button type="button" id="btnB1" class="btnB">CO2</button>
-                <button type="button" id="btnB2" class="btnB">CH4</button>
-                <button type="button" id="btnB3" class="btnB">O2</button>
-                <button type="button" id="btnB4" class="btnB">H2S</button>
-                <button type="button" id="btnB6" class="btnB">P atmosfera</button>
-                <button type="button" id="btnB7" class="btnB">P Interna</button>
-                <button type="button" id="btnB8" class="btnB">P de entrada</button>
-                <button type="button" id="btnB9" class="btnB">Temp SCHT</button>
-                <button type="button" id="btnB10" class="btnB">Temp Principal</button>
-                <button type="button" id="btnB11" class="btnB">Temp ambiental</button>
-                <button type="button" id="btnB12" class="btnB">Humedad</button>
-                <button type="button" id="btnB13" class="btn-accept">Descargar</button>
+                <button type="button" id="btn_CO2" class="btnB">CO2</button>
+                <button type="button" id="btn_CH4" class="btnB">CH4</button>
+                <button type="button" id="btn_O2" class="btnB">O2</button>
+                <button type="button" id="btn_H2S" class="btnB">H2S</button>
+                <button type="button" id="btn_Patm" class="btnB">P atmosfera</button>
+                <button type="button" id="btn_Pint" class="btnB">P Interna</button>
+                <button type="button" id="btn_Pent" class="btnB">P de entrada</button>
+                <button type="button" id="btn_Tgas" class="btnB">Temp SCHT</button>
+                <button type="button" id="btn_Tint" class="btnB">Temp Principal</button>
+                <button type="button" id="btn_Tatm" class="btnB">Temp ambiental</button>
+                <button type="button" id="btn_HR" class="btnB">Humedad</button>
+                <button type="button" id="btn_desc" class="btn-accept">Descargar</button>
                 
             </div>
 
@@ -142,43 +142,38 @@
 					</tr>
 					<tr class="tb-r">
 						<td>Início</td>
-						<td><input type="time" value="10:10"></input></td>
-						<td><button type="button" class="btn-accept">Aceptar</button></td>
+						<td><input id="Vi" type="time"></input></td>
+						<td><button type="button" id="btn_acept_Vinicio" class="btn-accept">Aceptar</button></td>
 					</tr>
 					<tr class="tb-r">
 						<td>V1</td>
-						<td><input type="number"></input></td>
-						<td><button type="button" class="btn-accept">Aceptar</button></td>
+						<td><input class="int_number" id="V1" type="number"></input></td>
+						<td><button type="button" id="btn_acept_V1" class="btn-accept">Aceptar</button></td>
 					</tr>
 					<tr class="tb-r">
 						<td>V2</td>
-						<td><input type="time"></input></td>
-						<td><button type="button" class="btn-accept">Aceptar</button></td>
-					</tr>
-					<tr class="tb-r">
-						<td>V2</td>
-						<td><input type="time"></input></td>
-						<td><button type="button" class="btn-accept">Aceptar</button></td>
+						<td><input class="int_number" id="V2" type="number"></input></td>
+						<td><button type="button" id="btn_acept_V2" class="btn-accept">Aceptar</button></td>
 					</tr>
 					<tr class="tb-r">
 						<td>V3</td>
-						<td><input type="time"></input></td>
-						<td><button type="button" class="btn-accept">Aceptar</button></td>
+						<td><input class="int_number" id="V3" type="number"></input></td>
+						<td><button type="button" id="btn_acept_V3" class="btn-accept">Aceptar</button></td>
 					</tr>
 					<tr class="tb-r">
 						<td>V4</td>
-						<td><input type="time"></input></td>
-						<td><button type="button" class="btn-accept">Aceptar</button></td>
+						<td><input class="int_number" id="V4" type="number"></input></td>
+						<td><button type="button" id="btn_acept_V4" class="btn-accept">Aceptar</button></td>
 					</tr>
 					<tr class="tb-r">
 						<td>V5</td>
-						<td><input type="time"></input></td>
-						<td><button type="button" class="btn-accept">Aceptar</button></td>
+						<td><input class="int_number" id="V5" type="number"></input></td>
+						<td><button type="button" id="btn_acept_V5" class="btn-accept">Aceptar</button></td>
 					</tr>
 					<tr class="tb-r">
 						<td>V6</td>
-						<td><input type="time"></input></td>
-						<td><button type="button" class="btn-accept">Aceptar</button></td>
+						<td><input class="int_number" id="V6" type="number"></input></td>
+						<td><button type="button" id="btn_acept_V6" class="btn-accept">Aceptar</button></td>
 					</tr>
 				</table>
 				<a>Indicaciones de uso y explicacion de las secciones indicadas</a>
@@ -398,7 +393,8 @@
                     </tbody>
                     
                 </table>
-                <button class="btn-accept">Descargar</button>
+                <a id="pedir_report" class="btn-accept" disabled>Crear reporte</a>
+                <a  href="/descargar/CV.pdf" id="descargar_report" class="btn-accept no_visible">Descargar</a>
                 
 
             </div>
@@ -460,6 +456,7 @@
                 
     </div>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1/dist/html2canvas.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.1.0/chart.js"></script>
 

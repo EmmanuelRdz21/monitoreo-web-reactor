@@ -24,84 +24,47 @@ let Tint_eDOM = document.getElementById('Tint_e');
 let Tgas_eDOM = document.getElementById('Tgas_e');
 let Tatm_eDOM = document.getElementById('Tatm_e');
 let datosDOM;
-let CO2_cliente;//Ejemplo
-//id a todas las variables en HTML
-//Obtener con el DOM el valor
-//Crear un objeto global para los valores leidos
-//funcion de actualizar valores leidos
-//Tarea para Lunes 31/mayo
+let Vi_value = document.getElementById("Vi");
+let V1_value = document.getElementById("V1");
+let V2_value = document.getElementById("V2");
+let V3_value = document.getElementById("V3");
+let V4_value = document.getElementById("V4");
+let V5_value = document.getElementById("V5");
+let V6_value = document.getElementById("V6");
+let CO2_cliente;
+let btn_Vi = document.getElementById("btn_acept_Vinicio");
+let btn_V1 = document.getElementById("btn_acept_V1");
+let btn_V2 = document.getElementById("btn_acept_V2");
+let btn_V3 = document.getElementById("btn_acept_V3");
+let btn_V4 = document.getElementById("btn_acept_V4");
+let btn_V5 = document.getElementById("btn_acept_V5");
+let btn_V6 = document.getElementById("btn_acept_V6");
+let desc_report = document.getElementById("descargar_report");
+let pedir_report = document.getElementById("pedir_report");
+desc_report.disabled = true;
+let a;
+let graf_CO2 = document.getElementById('btn_CO2');
+let graf_CH4 = document.getElementById('btn_CH4');
+let graf_O2 = document.getElementById('btn_O2');
+let graf_H2S = document.getElementById('btn_H2S');
+let graf_Patm = document.getElementById('btn_Patm');
+let graf_Pint = document.getElementById('btn_Pint');
+let graf_Pent = document.getElementById('btn_Pent');
+let graf_Tint = document.getElementById('btn_Tint');
+let graf_Tgas = document.getElementById('btn_Tgas');
+let graf_Tatm = document.getElementById('btn_Tatm');
+let graf_HR = document.getElementById('btn_HR');
 
-//********************Prueba de Grafica
-const CHART = document.getElementById('LineChart');
-console.log(CHART);
-let a = "CO2";
-let b = "CH4";
-let c = "O2";
-let d = "h2S";
-let t0 = "00:00";
-let t1 = "00:30";
-let t2 = "01:00";
-let t3 = "01:30";
-let t4 = "02:00";
-let i0 = 33;
-let i1 = 65;
-let i2 = 59;
-let i3 = 80;
-let i4 = 43;
-let lineChart = new Chart(CHART,{
-	type: 'line',
-	data: {
-		labels: [t0, t1, t2, t3, t4],
-		datasets: [
-			{
-				label: a,
-				fill: false,
-				lineTension: 0.1,
-				backgroundColor: "rgba(235, 81, 76)", //Centro cuadro indicador
-				borderColor: "rgba(115, 9, 7)",// COntorno cuadro indicador y grafica
-				borderCapStyle: 'butt',
-				borderDash: [],
-				borderDash0ffset: 0.0,
-				borderJoinStyle: 'miter',
-				pointBorderColor: "rgba(94, 90, 90)",// corcinferencia indicadora de punto
-				pointBackgroundColor: "#fff",
-				pointBorderWidth: 1,
-				pointHoverRadius: 5,
-				pointHoverBackgroundColor: "rgba(94, 90, 90)",// Centro, mouse indicador
-				pointHoverBorderColor: "rgba(255, 255, 255)",//Contorno mouse indicador
-				pointHoverBorderWidth: 2,
-				pointRadius: 1,
-				pointhitRadius: 10,
-				data: [i0, i1, i2, i3, i4],
-				pointRadius: 6,
-				pointBorderWidth: 4,
-				pointbackgroundColor: 'white',
-				pointHoverRadius: 8,
-				pointHoverBorderWidth: 4,	
-				tooltips:{
-					backgroundColor:'#0584f6',
-					titleFontSize: 20,
-					xPadding: 20,
-					yPadding: 20,
-					bodyFontsize:15,
-					bodySpacing: 10,
-				}
-
-			}
-
-		]
-
-   }	
-});
 //*************************************************
 //				Tabla
 //*************************************************
-let gentabla = document.getElementById('agreg');
+let gen_tabla = document.getElementById('agreg');
 let tabla="";
 let contador=0;
-let v = [22];
+let v = [0];
+let list_report = ["i"];
 
-gentabla.addEventListener('click', function(){
+gen_tabla.addEventListener('click', function(){
 	let sensorOp = document.getElementById('tipo-sensor').value;
 	let dataType = document.getElementById('tipo-dato').value;
 	let contenid = document.getElementById('contenido-tabla');
@@ -114,12 +77,16 @@ gentabla.addEventListener('click', function(){
 				tabla += "<td>Tiempo de operación</td></tr>"
 				v[0]=1;
 				contador ++;
+				list_report.push("CO2");
+				list_report.push("T");
 			}
 			else if(dataType==2 && v[1]!=1) {
 				tabla += "<tr class=\"tb-r\"><td>CO2</td>";
 				tabla += "<td>Gráfica</td></tr>"
 				v[1]=1;
 				contador ++;
+				list_report.push("CO2");
+				list_report.push("G");
 			}
 			contenid.innerHTML = tabla;
 		break;
@@ -465,28 +432,123 @@ btn6DOM.addEventListener('click', function(){
 });
 
 
-
+//Cambiar nombre de esta vriable
+//Actualiza los datos de la grafica en historico
 socket.emit('startup', 1);
 
+socket.on('graf_CO2', function(dataCO2, datatime){
+	let datos_x = JSON.parse(dataCO2);
+	let datos_y = JSON.parse(datatime);
+	crear_grafica(datos_x,"CO2", datos_y);
+});
+socket.on('graf_CH4', function(dataCH4, datatime){
+	let datos_x = JSON.parse(dataCH4);
+	let datos_y = JSON.parse(datatime);
+	crear_grafica(datos_x,"CH4", datos_y);
+});
+socket.on('graf_O2', function(dataO2, datatime){
+	let datos_x = JSON.parse(dataO2);
+	let datos_y = JSON.parse(datatime);
+	crear_grafica(datos_x,"O2", datos_y);
+});
+socket.on('graf_H2S', function(dataH2S, datatime){
+	let datos_x = JSON.parse(dataH2S);
+	let datos_y = JSON.parse(datatime);
+	crear_grafica(datos_x,"H2S", datos_y);
+});
+socket.on('graf_HR', function(dataHR, datatime){
+	let datos_x = JSON.parse(dataHR);
+	let datos_y = JSON.parse(datatime);
+	crear_grafica(datos_x,"HR", datos_y);
+});
+socket.on('graf_Patm', function(dataPatm, datatime){
+	let datos_x = JSON.parse(dataPatm);
+	let datos_y = JSON.parse(datatime);
+	crear_grafica(datos_x,"Patm", datos_y);
+});
+socket.on('graf_Pint', function(dataPint, datatime){
+	let datos_x = JSON.parse(dataPint);
+	let datos_y = JSON.parse(datatime);
+	crear_grafica(datos_x,"Pint", datos_y);
+});
+socket.on('graf_Pent', function(dataPent, datatime){
+	let datos_x = JSON.parse(dataPent);
+	crear_grafica(datos_x,"Pent", datos_y);
+});
+socket.on('graf_Tint', function(dataTint, datatime){
+	let datos_x = JSON.parse(dataTint);
+	let datos_y = JSON.parse(datatime);
+	crear_grafica(datos_x,"Tint", datos_y);
+});
+socket.on('graf_Tgas', function(dataTgas, datatime){
+	let datos_x = JSON.parse(dataTgas);
+	let datos_y = JSON.parse(datatime);
+	crear_grafica(datos_x,"Tgas", datos_y);
+});
+socket.on('graf_Tatm', function(dataTatm, datatime){
+	let datos_x = JSON.parse(dataTatm);
+	let datos_y = JSON.parse(datatime);
+	crear_grafica(datos_x,"Tatm", datos_y);
+});
+
+graf_CO2.addEventListener('click', function(){
+	socket.emit("graf_CO2", 1);
+
+});
+graf_CH4.addEventListener('click', function(){
+	socket.emit("graf_CH4", 1);	
+});
+graf_O2.addEventListener('click', function(){
+	socket.emit("graf_O2", 1);
+});
+graf_H2S.addEventListener('click', function(){
+	socket.emit("graf_H2S", 1);
+});
+graf_HR.addEventListener('click', function(){
+	socket.emit("graf_HR", 1);
+});
+graf_Patm.addEventListener('click', function(){
+	socket.emit("graf_Patm", 1);
+});
+graf_Pint.addEventListener('click', function(){
+	socket.emit("graf_Pint", 1);
+});
+graf_Pent.addEventListener('click', function(){
+	socket.emit("graf_Pent", 1);
+});
+graf_Tint.addEventListener('click', function(){
+	socket.emit("graf_Tint", 1);
+});
+graf_Tgas.addEventListener('click', function(){
+	socket.emit("graf_Tgas", 1);
+});
+graf_Tatm.addEventListener('click', function(){
+	socket.emit("graf_Tatm", 1);
+});
 socket.on('startup', function(data){
 	datosDOM = JSON.parse(data);
 	actualizar_valores();
+	actualizar_valvulas();
 	actualizar_valvulashw();
-	//console.log(data2.HR);
+});
+
+socket.on('creado', function(data){
+	desc_report.classList.remove('no_visible');
+	desc_report.classList.add('visible');
 });
 
 function actualizar_valores(){
-	CO2DOM.innerHTML = JSON.parse(datosDOM.CO2);
-	CH4DOM.innerHTML = JSON.parse(datosDOM.CH4);
-	O2DOM.innerHTML = JSON.parse(datosDOM.O2);
-	H2SDOM.innerHTML = JSON.parse(datosDOM.H2S);
-	HRDOM.innerHTML = JSON.parse(datosDOM.HR);
-	PatmDOM.innerHTML = JSON.parse(datosDOM.Patm);
-	PintDOM.innerHTML = JSON.parse(datosDOM.Pint);
-	PentDOM.innerHTML = JSON.parse(datosDOM.Pent);
-	TintDOM.innerHTML = JSON.parse(datosDOM.Tint);
-	TgasDOM.innerHTML = JSON.parse(datosDOM.Tgas);
-	TatmDOM.innerHTML = JSON.parse(datosDOM.Tatm);
+	CO2DOM.innerHTML = datosDOM.CO2;
+	CH4DOM.innerHTML = (datosDOM.CH4);
+	O2DOM.innerHTML = (datosDOM.O2);
+	H2SDOM.innerHTML = (datosDOM.H2S);
+	HRDOM.innerHTML = (datosDOM.HR);
+	PatmDOM.innerHTML = (datosDOM.Patm);
+	PintDOM.innerHTML = (datosDOM.Pint);
+	PentDOM.innerHTML = (datosDOM.Pent);
+	TintDOM.innerHTML = (datosDOM.Tint);
+	TgasDOM.innerHTML = (datosDOM.Tgas);
+	TatmDOM.innerHTML = (datosDOM.Tatm);
 	//****************************
 	if (datosDOM.CO2_e== 'X') {
 		CO2_e.innerHTML = 'OFF';
@@ -686,6 +748,15 @@ function actualizar_valores(){
 	}
 }
 
+function actualizar_valvulas(){
+	Vi_value.value = datosDOM.Vinicio;
+	V1_value.value = datosDOM.V1;
+	V2_value.value = datosDOM.V2;
+	V3_value.value = datosDOM.V3;
+	V4_value.value = datosDOM.V4;
+	V5_value.value = datosDOM.V5;
+	V6_value.value = datosDOM.V6;
+}
 
 function actualizar_valvulashw(){
 	if (datosDOM.V1_e== 'X') {
@@ -748,3 +819,142 @@ function actualizar_valvulashw(){
 		document.getElementById('v6_est').classList.add("YELLOW");
 	}
 }
+
+btn_Vi.addEventListener('click', function(){
+	socket.emit('valv_i', 1);
+});
+
+desc_report.addEventListener('click', function(){
+	socket.emit("report", 1);
+});
+
+pedir_report.addEventListener('click', function(){
+	socket.emit("pedir", list_report);
+});
+//**************************************//
+//********** Historico ****************//
+//************************************//
+
+//********************Prueba de Grafica
+let lineChart =0;
+
+
+function crear_grafica(datosX,etiqueta, datosY){
+	if (lineChart != 0) {
+		lineChart.destroy();
+	}
+	const CHART = document.getElementById('LineChart');
+	let t ={};
+	let datY = {};
+	datY[0] = datosY.y_1.split(":");
+	datY[1] = datosY.y_2.split(":");
+	datY[2] = datosY.y_3.split(":");
+	datY[3] = datosY.y_4.split(":");
+	datY[4] = datosY.y_5.split(":");
+	datY[5] = datosY.y_6.split(":");
+	datY[6] = datosY.y_7.split(":");
+	datY[7] = datosY.y_8.split(":");
+	datY[8] = datosY.y_9.split(":");
+	datY[9] = datosY.y_10.split(":");
+	datY[10] = datosY.y_11.split(":");
+	datY[11] = datosY.y_12.split(":");
+	datY[12] = datosY.y_13.split(":");
+	datY[13] = datosY.y_14.split(":");
+	datY[14] = datosY.y_15.split(":");
+	datY[15] = datosY.y_16.split(":");
+	datY[16] = datosY.y_17.split(":");
+	datY[17] = datosY.y_18.split(":");
+	datY[18] = datosY.y_19.split(":");
+	datY[19] = datosY.y_20.split(":");
+	//*******
+	for (let i = 0; i <= 19; i++) {
+		t[i] = parseInt(datY[i][3])*60+parseInt(datY[i][4]);
+		if (i>0) {
+			if (datY[i][2]!=datY[0][2]) {
+				t[i]=t[i]+1440;
+			}
+		}
+	}
+	for (let i = 1; i <= 19; i++) {
+		t[i]=t[i]-t[0];
+	}
+	t[0]=0;
+
+	//*******
+	let todo =[
+	datosX.x_1,
+	datosX.x_2,
+	datosX.x_3,
+	datosX.x_4,
+	datosX.x_5,
+	datosX.x_6,
+	datosX.x_7,
+	datosX.x_8,
+	datosX.x_9,
+	datosX.x_10,
+	datosX.x_11,
+	datosX.x_12,
+	datosX.x_13,
+	datosX.x_14,
+	datosX.x_15,
+	datosX.x_16,
+	datosX.x_17,
+	datosX.x_18,
+	datosX.x_19,
+	datosX.x_20];
+	a = etiqueta;
+	
+	lineChart = new Chart(CHART,{
+	type: 'line',
+	data: {
+		labels: [t[0],t[1],t[2],t[3],t[4],t[5],t[6],t[7],t[8],t[9],t[10],t[11],t[12],t[13],t[14],t[15],t[16],t[17],t[18],t[19],],
+		datasets: [
+			{
+				label: a,
+				fill: false,
+				lineTension: 0.1,
+				backgroundColor: "rgba(235, 81, 76)", //Centro cuadro indicador
+				borderColor: "rgba(115, 9, 7)",// COntorno cuadro indicador y grafica
+				borderCapStyle: 'butt',
+				borderDash: [],
+				borderDash0ffset: 0.0,
+				borderJoinStyle: 'miter',
+				pointBorderColor: "rgba(94, 90, 90)",// corcinferencia indicadora de punto
+				pointBackgroundColor: "#fff",
+				pointBorderWidth: 1,
+				pointHoverRadius: 5,
+				pointHoverBackgroundColor: "rgba(94, 90, 90)",// Centro, mouse indicador
+				pointHoverBorderColor: "rgba(255, 255, 255)",//Contorno mouse indicador
+				pointHoverBorderWidth: 2,
+				pointRadius: 1,
+				pointhitRadius: 10,
+				data: [todo[0],todo[1],todo[2],todo[3],todo[4],todo[5],todo[6],todo[7],todo[8],todo[9],todo[10],
+				todo[11],todo[12],todo[13],todo[14],todo[15],todo[16],todo[17],todo[18],todo[19]],
+				pointRadius: 6,
+				pointBorderWidth: 4,
+				pointbackgroundColor: 'white',
+				pointHoverRadius: 8,
+				pointHoverBorderWidth: 4,	
+				tooltips:{
+					backgroundColor:'#0584f6',
+					titleFontSize: 20,
+					xPadding: 20,
+					yPadding: 20,
+					bodyFontsize:15,
+					bodySpacing: 10,
+				}
+
+			}
+
+		]
+
+   }	
+});
+	;
+
+}
+function actualizar(){
+	socket.emit('startup', 1);
+	console.log("FUNCIONA");
+}
+setInterval(actualizar, 5000);

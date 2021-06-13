@@ -398,6 +398,9 @@
     opacity: 0.5;
     visibility: visible;
 }
+.int_number{
+    width: 100px;
+}
 .RED{
     background: rgba(235,21,15);
 }
@@ -697,11 +700,17 @@
 	background-color: #4E94AB;
     border: none;
     color: white;
-    padding: 7px 90px;
+    padding: 7px 80px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     display: relative;
+}
+.visible{
+    visibility: visible;
+}
+.no_visible{
+    visibility: hidden;
 }
 
 .btn-accept:hover{
