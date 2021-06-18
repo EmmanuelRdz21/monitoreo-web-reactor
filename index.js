@@ -118,13 +118,40 @@ let dataBase = mysql.createConnection({
 	user: 'admin',
 	password: '1234'
 });
-
 //********** SOCKET.IO
 io.on('connection', (socket)=>{
+
+	socket.on('actualizar_valvs',(data)=>{
+		dataBase.query("USE reactor40", function (err, result,field) {
+			if (err) throw err;
+		});
+		let comando = "INSERT INTO valvulas (V1,V2,V3,V4,V5,V6,Vinicio,time) VALUES(";
+		comando = comando + String(data.v1) + "," + String(data.v2) + "," + String(data.v3) + "," + String(data.v4);
+		comando = comando + "," + String(data.v5) + "," + String(data.v6) + "," + '\"'+data.vi+ '\"';
+		comando = comando + "," +"\"2021:06:01:09:15:35\");";
+
+		console.log(comando);
+		dataBase.query(comando, function (err, result,field) {
+			if (err) throw err;
+		});
+		//console.log(data.vi);
+	});
 	socket.on('pedir', (data)=>{
 		io.to(socket.id).emit('creado', 1);
 	});
-	socket.on('report',(data)=>{
+	/*socket.on('report',(data)=>{
+		app.get('/:id', function(req,res){
+			res.download(__dirname+'/src/'+req.params.id,
+				req.params.id,function(err){
+					if (err) {
+						console.log(err);
+					} else{
+						console.log("LISTO");
+					}
+				});
+		});
+	});*/
+	/*socket.on('img_graf',(data)=>{
 		app.get('/descargar/:id', function(req,res){
 			res.download(__dirname+'/src/'+req.params.id,
 				req.params.id,function(err){
@@ -135,7 +162,8 @@ io.on('connection', (socket)=>{
 					}
 				});
 		});
-	});
+		io.to(socket.id).emit('img_graf', 1);
+	});*/
 	socket.on('graf_CO2', (dataCO2, datatime)=>{
 		pedir_tiempos_conc();
 		dataBase.query("USE reactor40", function (err, result,field) {
@@ -504,8 +532,7 @@ io.on('connection', (socket)=>{
 			datos.time_conc = result[0].time;
 			datos.ID_conc = result[0].ID;
 			pedir_presiones();
-		});
-		
+	});
 			function pedir_presiones(){
 				dataBase.query('SELECT * FROM presiones ORDER BY ID DESC;',function(err, result, field){
 					if (err) throw err;
@@ -576,8 +603,6 @@ io.on('connection', (socket)=>{
 //console.log(JSON.stringify(concentracion));
 			//let Msg= 'Bienvenido El dato CO2 es: ' + concentracion[0];
 			//io.to(socket.id).emit('startup',Msg);
-
-
 function pedir_tiempos_conc(){
 	dataBase.query("USE reactor40", function (err, result,field) {
 			if (err) throw err;

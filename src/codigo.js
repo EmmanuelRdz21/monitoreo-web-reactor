@@ -1,5 +1,15 @@
-
-
+//*************************************************
+//				Declaraciones
+//*************************************************
+let btn1DOM = document.getElementById('showDiv1');
+let btn2DOM = document.getElementById('showDiv2');
+let btn3DOM = document.getElementById('showDiv3');
+let btn4DOM = document.getElementById('showDiv4');
+let btn5DOM = document.getElementById('showDiv5');
+let btn6DOM = document.getElementById('showDiv6');
+let menu_lateral = document.getElementById('menu-lateral');
+let btn_menu = document.getElementById('btn-menu');
+let contenedor = document.getElementById('cont');
 const socket = io();
 let CO2DOM = document.getElementById('CO2');
 let CH4DOM = document.getElementById('CH4');
@@ -32,16 +42,10 @@ let V4_value = document.getElementById("V4");
 let V5_value = document.getElementById("V5");
 let V6_value = document.getElementById("V6");
 let CO2_cliente;
-let btn_Vi = document.getElementById("btn_acept_Vinicio");
-let btn_V1 = document.getElementById("btn_acept_V1");
-let btn_V2 = document.getElementById("btn_acept_V2");
-let btn_V3 = document.getElementById("btn_acept_V3");
-let btn_V4 = document.getElementById("btn_acept_V4");
-let btn_V5 = document.getElementById("btn_acept_V5");
 let btn_V6 = document.getElementById("btn_acept_V6");
 let desc_report = document.getElementById("descargar_report");
+let desc_img = document.getElementById("descargar_img");
 let pedir_report = document.getElementById("pedir_report");
-desc_report.disabled = true;
 let a;
 let graf_CO2 = document.getElementById('btn_CO2');
 let graf_CH4 = document.getElementById('btn_CH4');
@@ -54,21 +58,21 @@ let graf_Tint = document.getElementById('btn_Tint');
 let graf_Tgas = document.getElementById('btn_Tgas');
 let graf_Tatm = document.getElementById('btn_Tatm');
 let graf_HR = document.getElementById('btn_HR');
-
-//*************************************************
-//				Tabla
-//*************************************************
+let lineChart = 0; //
 let gen_tabla = document.getElementById('agreg');
 let tabla="";
 let contador=0;
 let v = [0];
 let list_report = ["i"];
 
+desc_report.disabled = true;
+//*************************************************
+//				Tabla de reportes
+//*************************************************
 gen_tabla.addEventListener('click', function(){
 	let sensorOp = document.getElementById('tipo-sensor').value;
 	let dataType = document.getElementById('tipo-dato').value;
 	let contenid = document.getElementById('contenido-tabla');
-	
 	if (contador < 34) {
 		switch (sensorOp){
 		case "1":
@@ -332,47 +336,25 @@ gen_tabla.addEventListener('click', function(){
 			}
 			contenid.innerHTML = tabla;
 		break;
-
 		}
 	}
 	else{
 		alert("Ya excedió en número de renglones");
 	}
 });
-
-//*************************************************
-//				Declaraciones
-//*************************************************
-let btn1DOM = document.getElementById('showDiv1');
-let btn2DOM = document.getElementById('showDiv2');
-let btn3DOM = document.getElementById('showDiv3');
-let btn4DOM = document.getElementById('showDiv4');
-let btn5DOM = document.getElementById('showDiv5');
-let btn6DOM = document.getElementById('showDiv6');
-
 //*************************************************
 //*********		Esconder menu lateral*************
 //*************************************************
-let menu_lateral = document.getElementById('menu-lateral');
-let btn_menu = document.getElementById('btn-menu');
-
-let contenedor = document.getElementById('cont');
-
 btn_menu.addEventListener('change', function(){
 	if (event.currentTarget.checked){
 		menu_lateral.classList.remove('hide');
 		contenedor.classList.remove('complete');
-
 	}
 	else{
 		menu_lateral.classList.add('hide');
 		contenedor.classList.add('complete');
 	}
 });
-
-//*************************************************
-//				funciones propias
-//*************************************************
 //*************************************************
 //				Botones del menú
 //*************************************************
@@ -430,12 +412,16 @@ btn6DOM.addEventListener('click', function(){
 	document.getElementById('div6').style.display = '';
 	document.getElementById('out').style.display = 'none';
 });
-
-
-//Cambiar nombre de esta vriable
-//Actualiza los datos de la grafica en historico
+//*************************************************
+//				seccion de Socket
+//*************************************************
 socket.emit('startup', 1);
-
+socket.on('startup', function(data){
+	datosDOM = JSON.parse(data);
+	actualizar_valores();
+	actualizar_valvulas();
+	actualizar_valvulashw();
+});
 socket.on('graf_CO2', function(dataCO2, datatime){
 	let datos_x = JSON.parse(dataCO2);
 	let datos_y = JSON.parse(datatime);
@@ -473,6 +459,7 @@ socket.on('graf_Pint', function(dataPint, datatime){
 });
 socket.on('graf_Pent', function(dataPent, datatime){
 	let datos_x = JSON.parse(dataPent);
+	let datos_y = JSON.parse(datatime);
 	crear_grafica(datos_x,"Pent", datos_y);
 });
 socket.on('graf_Tint', function(dataTint, datatime){
@@ -490,10 +477,21 @@ socket.on('graf_Tatm', function(dataTatm, datatime){
 	let datos_y = JSON.parse(datatime);
 	crear_grafica(datos_x,"Tatm", datos_y);
 });
-
+socket.on('creado', function(data){
+	desc_report.classList.remove('no_visible');
+	desc_report.classList.add('visible');
+});
+socket.on('img_graf', function(data){
+	console.log("DESCARGADO");
+});
+socket.on('actualizar_valvs', function(){
+	
+});
+//*************************************************
+//		Botones de historicos de mediciones
+//*************************************************
 graf_CO2.addEventListener('click', function(){
 	socket.emit("graf_CO2", 1);
-
 });
 graf_CH4.addEventListener('click', function(){
 	socket.emit("graf_CH4", 1);	
@@ -525,18 +523,39 @@ graf_Tgas.addEventListener('click', function(){
 graf_Tatm.addEventListener('click', function(){
 	socket.emit("graf_Tatm", 1);
 });
-socket.on('startup', function(data){
-	datosDOM = JSON.parse(data);
-	actualizar_valores();
-	actualizar_valvulas();
-	actualizar_valvulashw();
+//********************************************************
+/*desc_report.addEventListener('click', function(){
+	socket.emit("report", 1);
+});*/
+/*desc_img.addEventListener('click', function(){
+	socket.emit("img_graf", 1);
+});*/
+pedir_report.addEventListener('click', function(){
+	socket.emit("pedir", list_report);
 });
-
-socket.on('creado', function(data){
-	desc_report.classList.remove('no_visible');
-	desc_report.classList.add('visible');
+btn_V6.addEventListener('click', function(){
+	let valvula = {
+		v1: '',
+		v2: '',
+		v3: '',
+		v4: '',
+		v5: '',
+		v6: '',
+		vi: ''
+	};
+	valvula.v1 = document.getElementById("V1").value;
+	valvula.v2 = document.getElementById("V2").value;
+	valvula.v3 = document.getElementById("V3").value;
+	valvula.v4 = document.getElementById("V4").value;
+	valvula.v5 = document.getElementById("V5").value;
+	valvula.v6 = document.getElementById("V6").value;
+	valvula.vi = document.getElementById("Vi").value;
+	console.log(valvula);
+	socket.emit("actualizar_valvs", valvula);
 });
-
+//*******************************************************
+//************ Funciones propias ************************
+//*******************************************************
 function actualizar_valores(){
 	CO2DOM.innerHTML = datosDOM.CO2;
 	CH4DOM.innerHTML = (datosDOM.CH4);
@@ -747,7 +766,6 @@ function actualizar_valores(){
 		document.getElementById('Tatm_est').classList.add("YELOW");
 	}
 }
-
 function actualizar_valvulas(){
 	Vi_value.value = datosDOM.Vinicio;
 	V1_value.value = datosDOM.V1;
@@ -757,7 +775,6 @@ function actualizar_valvulas(){
 	V5_value.value = datosDOM.V5;
 	V6_value.value = datosDOM.V6;
 }
-
 function actualizar_valvulashw(){
 	if (datosDOM.V1_e== 'X') {
 		document.getElementById('v1_est').classList.add("RED");
@@ -819,26 +836,6 @@ function actualizar_valvulashw(){
 		document.getElementById('v6_est').classList.add("YELLOW");
 	}
 }
-
-btn_Vi.addEventListener('click', function(){
-	socket.emit('valv_i', 1);
-});
-
-desc_report.addEventListener('click', function(){
-	socket.emit("report", 1);
-});
-
-pedir_report.addEventListener('click', function(){
-	socket.emit("pedir", list_report);
-});
-//**************************************//
-//********** Historico ****************//
-//************************************//
-
-//********************Prueba de Grafica
-let lineChart =0;
-
-
 function crear_grafica(datosX,etiqueta, datosY){
 	if (lineChart != 0) {
 		lineChart.destroy();
@@ -846,41 +843,6 @@ function crear_grafica(datosX,etiqueta, datosY){
 	const CHART = document.getElementById('LineChart');
 	let t ={};
 	let datY = {};
-	datY[0] = datosY.y_1.split(":");
-	datY[1] = datosY.y_2.split(":");
-	datY[2] = datosY.y_3.split(":");
-	datY[3] = datosY.y_4.split(":");
-	datY[4] = datosY.y_5.split(":");
-	datY[5] = datosY.y_6.split(":");
-	datY[6] = datosY.y_7.split(":");
-	datY[7] = datosY.y_8.split(":");
-	datY[8] = datosY.y_9.split(":");
-	datY[9] = datosY.y_10.split(":");
-	datY[10] = datosY.y_11.split(":");
-	datY[11] = datosY.y_12.split(":");
-	datY[12] = datosY.y_13.split(":");
-	datY[13] = datosY.y_14.split(":");
-	datY[14] = datosY.y_15.split(":");
-	datY[15] = datosY.y_16.split(":");
-	datY[16] = datosY.y_17.split(":");
-	datY[17] = datosY.y_18.split(":");
-	datY[18] = datosY.y_19.split(":");
-	datY[19] = datosY.y_20.split(":");
-	//*******
-	for (let i = 0; i <= 19; i++) {
-		t[i] = parseInt(datY[i][3])*60+parseInt(datY[i][4]);
-		if (i>0) {
-			if (datY[i][2]!=datY[0][2]) {
-				t[i]=t[i]+1440;
-			}
-		}
-	}
-	for (let i = 1; i <= 19; i++) {
-		t[i]=t[i]-t[0];
-	}
-	t[0]=0;
-
-	//*******
 	let todo =[
 	datosX.x_1,
 	datosX.x_2,
@@ -903,6 +865,38 @@ function crear_grafica(datosX,etiqueta, datosY){
 	datosX.x_19,
 	datosX.x_20];
 	a = etiqueta;
+	datY[0] = datosY.y_1.split(":");
+	datY[1] = datosY.y_2.split(":");
+	datY[2] = datosY.y_3.split(":");
+	datY[3] = datosY.y_4.split(":");
+	datY[4] = datosY.y_5.split(":");
+	datY[5] = datosY.y_6.split(":");
+	datY[6] = datosY.y_7.split(":");
+	datY[7] = datosY.y_8.split(":");
+	datY[8] = datosY.y_9.split(":");
+	datY[9] = datosY.y_10.split(":");
+	datY[10] = datosY.y_11.split(":");
+	datY[11] = datosY.y_12.split(":");
+	datY[12] = datosY.y_13.split(":");
+	datY[13] = datosY.y_14.split(":");
+	datY[14] = datosY.y_15.split(":");
+	datY[15] = datosY.y_16.split(":");
+	datY[16] = datosY.y_17.split(":");
+	datY[17] = datosY.y_18.split(":");
+	datY[18] = datosY.y_19.split(":");
+	datY[19] = datosY.y_20.split(":");
+	for (let i = 0; i <= 19; i++) {
+		t[i] = parseInt(datY[i][3])*60+parseInt(datY[i][4]);
+		if (i>0) {
+			if (datY[i][2]!=datY[0][2]) {
+				t[i]=t[i]+1440;
+			}
+		}
+	}
+	for (let i = 1; i <= 19; i++) {
+		t[i]=t[i]-t[0];
+	}
+	t[0]=0;
 	
 	lineChart = new Chart(CHART,{
 	type: 'line',
@@ -950,11 +944,8 @@ function crear_grafica(datosX,etiqueta, datosY){
 
    }	
 });
-	;
-
 }
 function actualizar(){
 	socket.emit('startup', 1);
-	console.log("FUNCIONA");
 }
-setInterval(actualizar, 5000);
+setInterval(actualizar, 10000);

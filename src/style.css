@@ -64,7 +64,7 @@
 /*******************************************************/
 .screen{
 	width: 100%;
-	border: 1px solid #0f0; 
+	/*border: 1px solid #0f0; */
 	margin: 1px auto;
 	background-color: #fff;
 	display: absolute;
